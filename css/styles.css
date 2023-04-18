@@ -1,0 +1,241 @@
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px !important;
+}
+h1{
+    font-family: 'Raleway', sans-serif !important;
+    
+}
+
+.navba{
+    font-family: 'Raleway', sans-serif !important;
+    font-size: xx-large !important;
+}
+.headerino{
+    background-color:#070707 ;
+    box-shadow: 0 0 5px 1px #000000;
+}
+
+.buttonColor{
+    background-color: #0466C8;
+    color:white;
+    font-size:25px;
+    margin-right: 33px;
+}
+
+.item-option{
+    font-size:25px;
+    cursor:pointer;
+    color:#0466C8;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-img{
+    margin-top:-50px;
+    margin-bottom: 35px;
+}
+
+.paddinglogin{
+    margin-top:150px;
+    margin-bottom: 35px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.seleccion{
+    box-shadow: 2px 4px 6px #3f3e3e !important;
+    border-radius: 15px !important;
+    padding-bottom: 50px !important;
+}
+
+.backgroundson{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(138, 138, 138, 0.3)),url("../assets/bgLogin.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover;
+
+    backdrop-filter: blur(4px);
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+}
+
+.main section{
+    margin:0 auto;
+    margin-top:25%;
+    padding:0;
+}
+
+.carousel-control-prev-icon 
+{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23141414' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+   
+.carousel-control-next-icon 
+{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23141414' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.form-group input{
+    height: 40px;
+    font-size:16    px;
+    border:0;
+    background-color: #141414;
+    color:white;
+}
+.form-group input:focus {
+    background-color: #272626;
+    color:white;
+}
+
+.highlight{
+    color:#0466C8;
+    font-weight: bold;
+}
+
+.navbarleftside{
+    background-color: #141414;
+    color:#ffffff;
+    
+}
+
+.nav-tabs{
+    background-color:  #141414;
+    transition: 0.7s;
+    
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    transition: 0.3s;
+}
+
+#sidebar ul li a:hover {
+    color: #0466C8 !important;
+    background: #d4d4d4;
+    font-weight: bold;
+
+}
+
+.active{
+    color:#0466C8 !important;
+    font-weight: bold;
+}
+
+.nav-link{
+    color:#ffffff;
+}
+
+.icon-grande{
+    color:#3f3e3e;
+    font-size: 100px;
+}
+
+.lineazul{
+    border-top: 4px solid #0466C8; 
+    width:100%;
+    text-align: left;
+}
+
+.infoFoot{
+    color:white; 
+    margin-left:25px;
+}
+
+.ci{
+    font-size: 12px !important;
+}
+
+.footerino{
+   background-color: #070707; 
+   padding:15px;
+   box-shadow: 0 0 5px 1px #000000;
+}
+
+.panelcontrol{
+    background: rgb(255,255,255);
+}
+
+.cardProducto{
+    padding:15px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgb(194, 193, 193);
+    border-radius: 5px;
+  }
+
+  .cardProducto img{
+  
+    width: 100%;
+    
+    }
+    
+.colorPrecio{
+    color: #0466C8;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.Colordetail{
+    background-color: #0466C8;
+    color:white;
+    font-size:25px;
+    margin-right: 33px;
+}
+
+.part1 img{
+    width: 100%;
+}
+
+
+.canvas{
+    padding: 50px !important;
+
+}
+
+.pedido-img img{
+    width: 100%;
+}
+
+.sepp{
+    margin-bottom: 6px;
+    padding: 3px;
+    border-style: solid;
+    border-width: 0px;
+    border-color:#797878;
+    border-radius: 4px;
+}
+
+.margenescarrito{
+    margin-left:150px;
+    margin-right:150px;
+
+}
+
+.btn-primary{
+    background-color: #0466C8 !important;
+    border-color: #0466C8 !important;
+
+}
+.elementCart{
+    margin-left: 5px;
+    font-size: 15;
+}

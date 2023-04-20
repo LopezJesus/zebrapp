@@ -22,6 +22,8 @@
                     <i class="fa-solid fa-robot great"></i>           
                     <h2 style="font-size:80px; color: #0466C8;"> 404 </h2>
                     <h1>OOPS! ERROR </h1>
+                    <div style="margin-left:100px;margin-right:100px;"><hr class="lineazul"> </div>
+
                     <p>La página que estabas buscando parece que ya no existe, fue removida o tal vez solamente escribiste mal el enlace, prueba utilizar el boton de abajo para regresar al inicio</p>
                     <a href="index.php"><button class="btn buttonColorin" type="submit">Llévame al inicio</button></a>
                 </div>    

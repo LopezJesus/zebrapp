@@ -34,7 +34,7 @@ if(!isset($_SESSION['idUsuarios'])){
         <div class="container-fluid text-left canvas" style="background-color:#e1e1e1 ">
             <h3> Mi carrito </h3>
             <div class="lineazul" style="width:300px; margin-bottom:35px;"></div>
-            <div class="margenescarrito" style="background-color:white" id="space-list">
+            <div class="container-fluid-sm" style="background-color:white" id="space-list">
 
 
             </div>

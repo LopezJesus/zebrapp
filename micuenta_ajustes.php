@@ -41,13 +41,13 @@
                                 <a class="nav-link " href="micuenta_pedidos.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="#"><i class="fa-solid fa-book"></i>  Facturas</a>
+                                <a class="nav-link " href="micuenta_facturas.php"><i class="fa-solid fa-book"></i>  Facturas</a>
                             </li>
                             <li class="nav-item  ">
                                 <a class="nav-link active" href="micuenta_ajustes.php"> <i class="fa-solid fa-gear"></i>  Ajustes</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="#"><i class="fa-solid fa-right-from-bracket"></i>  Cerrar sesión</a>
+                                <a class="nav-link " href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>  Cerrar sesión</a>
                             </li>
                         </ul>
                     </div>

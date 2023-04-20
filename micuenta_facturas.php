@@ -25,13 +25,9 @@
             require_once('header.php');
             ?>
         </header>
-            <?php
-              while($filas=mysqli_fetch_assoc($resultado)){
-
-            ?>
         <div style=" margin:10px;">        
             <div class="col-sm-4">
-                <h1 >Escritorio</h1>
+                <h1 >Facturas</h1>
                 <hr class="lineazul">
             </div>
             <div id="sidebar"class="container-fluid">
@@ -39,15 +35,15 @@
                     <div class="col-sm-4" style="background-color:#141414; padding: 0px">
                         <ul class="nav flex-column navbarleftside">
                             <li class="nav-item">
-                                <a class="nav-link active" href="micuenta.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
+                                <a class="nav-link" href="micuenta.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="micuenta_pedidos.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
+                                <a class="nav-link " href="micuenta_pedidos.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="micuenta_facturas.php"><i class="fa-solid fa-book"></i>  Facturas</a>
+                                <a class="nav-link active " href="micuenta_facturas.php"><i class="fa-solid fa-book"></i>  Facturas</a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item  ">
                                 <a class="nav-link " href="micuenta_ajustes.php"> <i class="fa-solid fa-gear"></i>  Ajustes</a>
                             </li>
                             <li class="nav-item ">
@@ -56,18 +52,31 @@
                         </ul>
                     </div>
 
-                    <div class="col-sm-8" style="padding-left: 25px !important;">
-                        <span class="icon-grande center"><i class="fa-solid fa-user"></i></span>
-                        <p>Hola <span class="highlight"><?php echo $filas['userUsuario'] ?></span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
-                        <p> Número de usuario: <?php echo $filas['idUsuarios'] ?></p>
-                        <h4> Nombre: <?php echo $filas['NombreUsuario'] ?>  </h1>
-                        <h4> Apellido: <?php echo $filas['ApellidoUsuario'] ?>  </h1>
-                        <h4> Nombre: <?php echo $filas['emailUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['telefonoUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['ciudadUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['codposUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['Dirección'] ?>  </h4>
-                        <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p> <?php } ?>
+                    <div class="col-sm-8 setUser" style="padding-left: 25px !important; ">
+                        <p> Aquí puedes revisar y descargar las facturas de los pedidos que hayas realizado en el sitio.</p>
+                        <div class="text-center">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col"># de Factura</th>
+                                    <th scope="col"># de Pedido</th>
+                                    <th scope="col">Fecha de Factura</th>
+                                    <th scope="col">Total del pedido</th>
+                                    <th scope="col"> Descargar factura</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">001</th>
+                                        <td>001</td>
+                                        <td>05/05/2023</td>
+                                        <td>$1350.00 MXN</td>
+                                        <td> <i class="fa-solid fa-circle-down"></i> </td>
+                                    </tr>
+              
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

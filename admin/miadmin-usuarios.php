@@ -28,7 +28,7 @@
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
             <div class="col-sm-4">
-                <h1 >Escritorio</h1>
+                <h1 >Usuarios</h1>
                 <hr class="lineazul">
             </div>
             <div id="sidebar"class="container-fluid">
@@ -36,13 +36,13 @@
                     <div class="col-sm-4" style="background-color:#141414; padding: 0px">
                         <ul class="nav flex-column navbarleftside">
                             <li class="nav-item">
-                                <a class="nav-link active" href="miadmin.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
+                                <a class="nav-link " href="miadmin.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="miadmin-productos.php"><i class="fa-solid fa-box-open"></i> Productos</a>
+                                <a class="nav-link " href="miadmin-productos.php"><i class="fa-solid fa-box-open"></i> Productos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="miadmin-usuarios.php"><i class="fa-solid fa-users"></i> Usuarios</a>
+                                <a class="nav-link active" href="miadmin-usuarios.php"><i class="fa-solid fa-users"></i> Usuarios</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="miadmin-facturas.php"> <i class="fa-solid fa-book"></i> Facturas</a>
@@ -57,8 +57,30 @@
                     </div>
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
-                        <span class="icon-grande center"><i class="fa-solid fa-user-secret"></i></span>
-                        <p>Hola administrador <span class="highlight"> &lt;Admin&gt;</span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
+                    <div class="text-center">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col"># Usuario</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Numero de telefono</th>
+                                    <th scope="col">Acciones</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">001</th>
+                                        <td>Joel11</td>
+                                        <td>joelin@gmail.com</td>
+                                        <td>664-111-7533  </td>
+                                        <td> <i class="fa-solid fa-eye"></i>   <i class="fa-solid fa-pen"></i>   <i class="fa-solid fa-trash"></i> </td>
+                                    </tr>
+              
+                                </tbody>
+                            </table>
+                        </div>     
                     </div>
                 </div>
             </div>

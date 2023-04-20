@@ -259,3 +259,27 @@ h1{
     color:rgb(0, 0, 0);
 
 }
+
+.great{
+    color:#5a5a5a;
+    font-size: 100px;
+    text-align: center;
+}
+
+.down{
+    margin-top: 50px !important;
+
+}
+
+.down p{
+
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+
+}
+
+.buttonColorin{
+    background-color: #0466C8;
+    color:white;
+    font-size:25px;
+}

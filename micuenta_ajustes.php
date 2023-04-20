@@ -55,7 +55,7 @@
                     <div class="col-sm-8 setUser" style="padding-left: 25px !important; ">
                         <p> Ajusta tus datos personales si es necesario, a su vez se cuentan con las opciones de cambiar la dirección de los pedidos y tu contraseña.</p>
                         <div class="text-center">
-                        <form action="services/login.php" method="post" class="col-12">
+                        <form action="" method="post" class="col-12">
                             <div class="form-group">
                                 <h3> Datos personales </h3>
                                 <input type="text" placeholder="Nombre(s)" class="form-control" name="names"></input>
@@ -68,8 +68,11 @@
                             </div>
                             <div class="form-group ">
                                 <input type="text" placeholder="Teléfono" class="form-control" name="phone"></input>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
                             </div>
-                            
+                        </form>
+
+                        <form action="" method="post" class="col-12">
                             <div class="form-group text-center">
                                 <h3>  Datos de pedidos </h3>
                                 <input type="text" placeholder="Ciudad" class="form-control" name="names"></input>
@@ -79,21 +82,24 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" placeholder="Dirección" class="form-control" name="phone"></input>
-                            </div>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos de pedido</button>
 
+                            </div>
+                        </form>
+                        
+                        <form action="" method="post" class="col-12">
                             <div class="form-group">
                                 <h3> Cambio de contraseña </h3>
-                                <input type="text" placeholder="Contraseña actual" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Contraseña actual" class="form-control" name="phone"></input>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Nueva contraseña" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Nueva contraseña" class="form-control" name="phone"></input>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Confirmar nueva contraseña" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Confirmar nueva contraseña" class="form-control" name="phone"></input>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i> Cambiar contraseña</button>
                             </div>
-                            <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Actualizar información</button>
-                            
-                        </form>
+                            </form>
                         </div>
                     </div>
                 </div>

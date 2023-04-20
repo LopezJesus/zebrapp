@@ -260,5 +260,6 @@ h1{
 
 .setUser input:focus{
     background-color: #c4c4c4;
+    color:rgb(0, 0, 0);
 
 }

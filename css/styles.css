@@ -239,3 +239,26 @@ h1{
     margin-left: 5px;
     font-size: 15;
 }
+
+.form-group input{
+    height: 40px;
+    font-size:16    px;
+    border:0;
+    background-color: #141414;
+    color:white;
+}
+.form-group input:focus {
+    background-color: #272626;
+    color:white;
+}
+
+.setUser input{
+    background-color: #dddddd;
+    color:rgb(0, 0, 0);
+
+}
+
+.setUser input:focus{
+    background-color: #c4c4c4;
+
+}

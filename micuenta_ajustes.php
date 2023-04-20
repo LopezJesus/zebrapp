@@ -38,7 +38,7 @@
                                 <a class="nav-link" href="micuenta.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href=""><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
+                                <a class="nav-link " href="micuenta_pedidos.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="#"><i class="fa-solid fa-book"></i>  Facturas</a>

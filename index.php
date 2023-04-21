@@ -20,6 +20,7 @@
       $sql="select * from usuariosl";
       $resultado=mysqli_query($conexion,$sql);
       ?>
+
         <header>
             <?php
             require_once('header.php');
@@ -66,7 +67,7 @@
                 <div><button class="btn buttonColorin ">Ver detalles</button> </div>
 
               </div>
-              <div class="col-sm-3"> <h3>Computadoras </h3>                 
+              <div class="col-sm-3"> <h3>Computadoras </h3>                
 
                 <img class="d-block w-100" src="assets\computadoras.jpg">
                 <div><button class="btn buttonColorin ">Ver detalles</button> </div>
@@ -88,22 +89,13 @@
        
 
             </div>
+            <div class="text-center">
+              <h4>Productos destacados</h4>
+              <div class="row" id="space-list"> 
             
-            <div class="row">
-              <div class="col-sm-6  "> <h3>Impresoras</h3>               
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
-
-                <img class="d-block w-100" src="assets\Productos\impresora1.webp">
               </div>
-              <div class="col-sm-6"> <h3>Computadoras </h3>                
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
-
-                <img class="d-block w-100" src="assets\computadoras.jpg">
-              </div>
-   
-
             </div>
-
+          </div>
 
             <?php
               /*while($filas=mysqli_fetch_assoc($resultado)){
@@ -121,5 +113,33 @@
             require_once('footer.php');
         ?>
         </footer>
+        <script type="text/javascript">
+            (function(){
+                $.ajax({
+                    url:'services/producto/todosproductos.php',
+                    type:'POST',
+                    data:{},
+                    success:function(data){
+                        console.log(data);
+
+                        let html='';
+                        for(var i=0; i<data.datos.length;i++){
+                            html+='<div class="col-sm-3 cardProducto" >'+
+                                    '<h5 >'+data.datos[i].nomProducto+'</h5>'+
+                                    '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
+                                    '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
+                                    '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
+                                    '<div class="btn-group" ">'+
+                                        '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
+                                        '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
+                                    '</div>'+
+                                '</div>';
+                            ;
+                        }
+                        document.getElementById("space-list").innerHTML=html;
+                    }
+                });
+            })();
+      </script>
     </body>
 </html>

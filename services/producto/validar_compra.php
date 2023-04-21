@@ -3,7 +3,7 @@
     $response= new stdClass();
     if(!isset($_SESSION['idUsuarios'])){
         $response->state=false;
-        $response->detail="No estas logeado";
+        $response->detail="No tienes tu sesión iniciada";
         $response->open_login=true;
     }
     else{

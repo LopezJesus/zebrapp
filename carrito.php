@@ -36,9 +36,10 @@ if(!isset($_SESSION['idUsuarios'])){
             <div class="lineazul" style="width:300px; margin-bottom:35px;"></div>
             <div class="container-fluid-sm" style="background-color:white" id="space-list">
 
-
             </div>
             <div class="text-center">
+            <h3> Total: $52,251.98 MXN</h3>
+
                 <button class="btn buttonColor">Procesar compra</button>
             </div>
         </div>

@@ -79,6 +79,8 @@
               
                                 </tbody>
                             </table>
+                            <a href="#"><button class="btn buttonColorin" type="submit"></i>Crear producto</button></a>
+
                         </div>                    
                     </div>
                 </div>

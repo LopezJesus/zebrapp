@@ -59,7 +59,7 @@
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                         <span class="icon-grande center"><i class="fa-solid fa-user"></i></span>
                         <p>Hola <span class="highlight"><?php echo $filas['userUsuario'] ?></span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
-                        <p> Número de usuario: <?php echo $filas['idUsuarios'] ?></p>
+                        <!--<p> Número de usuario: <?php echo $filas['idUsuarios'] ?></p>
                         <h4> Nombre: <?php echo $filas['NombreUsuario'] ?>  </h1>
                         <h4> Apellido: <?php echo $filas['ApellidoUsuario'] ?>  </h1>
                         <h4> Nombre: <?php echo $filas['emailUsuario'] ?>  </h4>
@@ -67,7 +67,7 @@
                         <h4> Nombre: <?php echo $filas['ciudadUsuario'] ?>  </h4>
                         <h4> Nombre: <?php echo $filas['codposUsuario'] ?>  </h4>
                         <h4> Nombre: <?php echo $filas['Dirección'] ?>  </h4>
-                        <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p> <?php } ?>
+                        <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p>--> <?php } ?>
                     </div>
                 </div>
             </div>

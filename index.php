@@ -58,16 +58,62 @@
             </a>
           </div>
 
-          <div class="container-fluid ">
+          <div class="container   ">
+            <div class="row bg-white text-center">
+              <div class="col-sm-4  "> <h3>Impresoras   </h3>               
+
+                <img class="d-block w-100" src="assets\Productos\impresora1.webp">
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+              </div>
+              <div class="col-sm-3"> <h3>Computadoras </h3>                 
+
+                <img class="d-block w-100" src="assets\computadoras.jpg">
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+              </div>
+              
+              <div class="col-sm-3 "> <h3>Tabletas </h3>                
+
+                <img class="d-block w-100" src="assets\tabletas.jpg" >
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+              </div>
+              <div class="col-sm-2  "> <h3>Escaneres   </h3>              
+
+                <img class="d-block w-100" src="assets\escaneres.jpg">
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+              </div>
+       
+
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-6  "> <h3>Impresoras</h3>               
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+                <img class="d-block w-100" src="assets\Productos\impresora1.webp">
+              </div>
+              <div class="col-sm-6"> <h3>Computadoras </h3>                
+                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+
+                <img class="d-block w-100" src="assets\computadoras.jpg">
+              </div>
+   
+
+            </div>
+
+
             <?php
-              while($filas=mysqli_fetch_assoc($resultado)){
+              /*while($filas=mysqli_fetch_assoc($resultado)){
 
               
             ?>
             <p> ID de usuario: <?php echo $filas['idUsuarios'] ?></p>
             <p> Nombre de usuario: <?php echo $filas['NombreUsuario'] ?>  </p>
             <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p>
-            <?php } ?>
+            <?php }*/ ?>
           </div>
         <footer>  
 

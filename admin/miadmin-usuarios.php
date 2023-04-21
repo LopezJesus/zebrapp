@@ -80,6 +80,8 @@
               
                                 </tbody>
                             </table>
+                            <a href="#"><button class="btn buttonColorin" type="submit"></i>Registrar usuarios</button></a>
+
                         </div>     
                     </div>
                 </div>

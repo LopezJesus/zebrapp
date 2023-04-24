@@ -281,3 +281,8 @@ h1{
 .brds{
     border: 1px solid #000 !important;
 }
+
+
+.errorusu p{
+    color:red;
+}

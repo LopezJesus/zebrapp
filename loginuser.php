@@ -74,6 +74,7 @@
                 <div class="form-group">
                   <input type="password" placeholder="Contraseña" class="form-control" name="passwordUsuario" required></input>
                 </div>
+                <div class="errorusu">
                 <?php 
                   if(isset($_GET['e'])){
                     switch ($_GET['e']){
@@ -91,7 +92,7 @@
                     }
                   }
                 ?>
-              
+                </div>
                 <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-right-to-bracket"></i>   Iniciar sesión</button>
                 
 

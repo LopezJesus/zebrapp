@@ -12,7 +12,7 @@
             $passwordUsuario=$_POST['passwordUsuario'];
             if($row['passwordUsuario']!=$passwordUsuario){
                 //error 3. mala contraseña
-                header('Location: ../index.php?e=3');
+                header('Location: ../loginuser.php?e=3');
             }else{
                 session_start();
                 $_SESSION['idUsuarios']=$row['idUsuarios'];
@@ -22,11 +22,11 @@
             }
         }else{
             //error 2. user no existe 
-            header('Location: ../index.php?e=2');
+            header('Location: ../loginuser.php?e=2');
 
         }
     }else{
         //error 1. Conexion
-        header('Location: ../index.php?e=1');
+        header('Location: ../loginuser.php?e=1');
     }
 ?>

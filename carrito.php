@@ -31,16 +31,26 @@ if(!isset($_SESSION['idUsuarios'])){
             require_once('header.php');
             ?>
         </header>
-        <div class="container-fluid text-left canvas" style="background-color:#e1e1e1 ">
-            <h3> Mi carrito </h3>
+        <div class="container text-left" style="background-color:#d0d0d0; margin 30px;">
+            <h1> Mi carrito </h1>
             <div class="lineazul" style="width:300px; margin-bottom:35px;"></div>
             <div class="container-fluid-sm" style="background-color:white" id="space-list">
-
             </div>
-            <div class="text-center">
-            <h3> Total: $52,251.98 MXN</h3>
-
-                <button class="btn buttonColor">Procesar compra</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4 text-center">            <h3> Total: </h3> </div>
+                    <div class="col-sm-8 text-center">
+                        <form action="" method="post" class="col-12-sm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Dirección" class="form-control" name="dir"></input>
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" placeholder="Teléfono" class="form-control" name="phone"></input>
+                            </div>
+                            <button  style="margin-bottom:35px;" class="btn buttonColor" type="submit">Procesar compra</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <footer>  
@@ -68,11 +78,11 @@ if(!isset($_SESSION['idUsuarios'])){
                                     '</div>'+   
                                     '<div class="pedido-detalle col-sm-5">'+
                                         '<h5>'+data.datos[i].nomProducto+'</h5>'+
-                                        '<h6><b>Precio:</b>$ '+data.datos[i].preProducto+'MXN</h6>'+
-                                        '<h5>Fecha: '+data.datos[i].FechaPedido+ '</h5>'+
-                                        '<h5>Estado: ' +data.datos[i].estado+'</h5>'+
-                                        /*<h5>Dirección: Calle por defecto 1</h5>
-                                        <h5>Telefono: 664 111 2505</h5>*/
+                                        '<h6><b>Precio: </b>$ '+data.datos[i].preProducto+'MXN</h6>'+
+                                        '<h6><b>Fecha: </b> '+data.datos[i].FechaPedido+ '</h5>'+
+                                        '<h6><b>Estado: </b> ' +data.datos[i].estado+'</h5>'+
+                                        '<h6><b>Dirección: </b>' +data.datos[i].dirPedido+'</h5>'+
+                                        '<h6><b>Telefono: </b>' +data.datos[i].telPedido+'</h5>'+
                                     '</div>'+    
                                     '<div class="col-sm-2  ">'+
                                         '<h5>Cantidad</h5>'+

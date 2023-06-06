@@ -56,7 +56,7 @@ if(!isset($_SESSION['idUsuarios'])){
         <script type="text/javascript">
             (function(){
                 $.ajax({
-                    url:'services/producto/get_procesados.php',
+                    url:'services/pedido/get_procesados.php',
                     type:'POST',
                     data:{},
                     success:function(data){

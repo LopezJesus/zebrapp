@@ -62,7 +62,7 @@ if(!isset($_SESSION['idUsuarios'])){
         <script type="text/javascript">
             (function(){
                 $.ajax({
-                    url:'services/producto/todospedidos.php',
+                    url:'services/pedido/todospedidos.php',
                     type:'POST',
                     data:{},
                     success:function(data){
@@ -109,7 +109,7 @@ if(!isset($_SESSION['idUsuarios'])){
                     alert("Complete los campos");
                 }else{
                     $.ajax({
-                    url:'services/producto/confirm.php',
+                    url:'services/pedido/confirm.php',
                     type:'POST',
                     data:{
                         dirusu:dirusu,

@@ -202,9 +202,21 @@ h1{
 }
 
 .part1 img{
-    width: 100%;
+    /*width: 100%;*/
 }
 
+.part1 img {
+    width: 500px;
+    height: auto;
+  }
+  
+  /* Media query para pantallas de tamaño pequeño, como celulares */
+  @media (max-width: 768px) {
+    .part1 img {
+      width: 100%;
+      height: auto;
+    }
+  }
 
 
 .pedido-img img{

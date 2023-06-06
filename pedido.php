@@ -32,7 +32,7 @@ if(!isset($_SESSION['idUsuarios'])){
             ?>
         </header>
         <div class="container text-left" style="background-color:#d0d0d0; margin 30px;">
-            <h1> Mi carrito </h1>
+            <h1> Mis pedidos </h1>
             <div class="lineazul" style="width:300px; margin-bottom:35px;"></div>
             <div class="container-fluid-sm" style="background-color:white" id="space-list">
             </div>
@@ -40,13 +40,7 @@ if(!isset($_SESSION['idUsuarios'])){
                 <div class="row">
                     <div class="col-sm-4 text-center"><h3> Total: </h3> </div>
                     <div class="col-sm-8 text-center">
-                            <div class="form-group">
-                                <input type="text" placeholder="Dirección" class="form-control" id="dirusu"></input>
-                            </div>
-                            <div class="form-group ">
-                                <input type="text" placeholder="Teléfono" class="form-control" id="telusu"></input>
-                            </div>
-                            <button style="margin-bottom:35px;" class="btn buttonColor" type="submit" onclick="procesar_compra()">Procesar compra</button>
+                            <h3>Datos de pago</h3>
                     </div>
                 </div>
             </div>
@@ -62,7 +56,7 @@ if(!isset($_SESSION['idUsuarios'])){
         <script type="text/javascript">
             (function(){
                 $.ajax({
-                    url:'services/producto/todospedidos.php',
+                    url:'services/producto/get_procesados.php',
                     type:'POST',
                     data:{},
                     success:function(data){
@@ -101,36 +95,6 @@ if(!isset($_SESSION['idUsuarios'])){
                     }
                 });
             })();
-
-            function procesar_compra(){
-                let dirusu=document.getElementById("dirusu").value;
-                let telusu=document.getElementById("telusu").value;
-                if(dirusu == "" || telusu==""){
-                    alert("Complete los campos");
-                }else{
-                    $.ajax({
-                    url:'services/producto/confirm.php',
-                    type:'POST',
-                    data:{
-                        dirusu:dirusu,
-                        telusu:telusu
-                    },
-                    success:function(data){
-                        console.log(data);
-                        if(data.state){
-                            window.location.href="pedido.php";
-                        }else
-                        {
-                            alert(data.detail)  ;
-                        }
-                    },
-                    error:function(err){
-                        console.error(err);
-                    }
-                });
-                }
-
-            }
                
         </script>    
     </body>

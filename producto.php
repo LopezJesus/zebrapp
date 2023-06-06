@@ -25,9 +25,9 @@
             ?>
         </header>
         <div class="container-fluid text-center canvas container-md">
-            <div class="row"> 
+            <div class="row" style=";"> 
                 <div class="col-sm-6 part1 text-right">
-                    <img id="imgprod" src="assets/productos/impresora1.jpg">
+                    <img id="imgprod" src="assets/productos/impresora1.jpg"  style="padding 30px;">
                 </div>
                 <div class="col-sm-6 part2 text-justify">
                     <h2 id="nameprod">Nombre</h2>

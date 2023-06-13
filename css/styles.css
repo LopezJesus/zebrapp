@@ -151,7 +151,7 @@ h1{
 
 .lineazul{
     border-top: 4px solid #0466C8; 
-    width:100%;
+    width:auto !important;
     text-align: left;
 }
 

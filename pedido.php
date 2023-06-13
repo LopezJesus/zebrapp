@@ -38,10 +38,16 @@ if(!isset($_SESSION['idUsuarios'])){
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-4 text-center"><h3> Total: </h3> </div>
-                    <div class="col-sm-8 text-center">
+                    <div class="col-sm-8 text-left">
                             <h3>Datos de pago</h3>
+                            <h4><b>Banco:</b> BBVA</h4>
+                            <h4><b>No de Cuenta:</b> xxx-xxx-125</h4>
+                            <h4><b>Representante:</b> Agente vendedor #1</h4>
+                           <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
+
                     </div>
+                    <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"> MXN </h4></div>
+
                 </div>
             </div>
         </div>
@@ -61,8 +67,8 @@ if(!isset($_SESSION['idUsuarios'])){
                     data:{},
                     success:function(data){
                         console.log(data);
-
                         let html='';
+                        let monto=0;
                         for(var i=0; i<data.datos.length;i++){
                             html+='<div class="row sepp">'+
                                     '<div class="pedido-img col-sm-2">'+
@@ -88,10 +94,15 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<i class="fa-solid fa-eye item-option elementCart"></i>'+
                                     '</div>'+   
                                 '</div>';
-
-                            ;
+                                
+                            /*if (data.datos[i]).estado==1{
+                                monto+=parseFloat(data.datos[i].preProducto);
+                            }*/
                         }
                         document.getElementById("space-list").innerHTML=html;
+
+                        //document.getElementById("montotal").innerHTML=html;
+
                     }
                 });
             })();

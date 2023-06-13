@@ -46,7 +46,7 @@ if(!isset($_SESSION['idUsuarios'])){
                            <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
 
                     </div>
-                    <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"> MXN </h4></div>
+                    <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
 
                 </div>
             </div>
@@ -95,13 +95,12 @@ if(!isset($_SESSION['idUsuarios'])){
                                     '</div>'+   
                                 '</div>';
                                 
-                            /*if (data.datos[i]).estado==1{
-                                monto+=parseFloat(data.datos[i].preProducto);
-                            }*/
+                            monto=monto+parseFloat(data.datos[i].preProducto );
+                            
                         }
                         document.getElementById("space-list").innerHTML=html;
 
-                        //document.getElementById("montotal").innerHTML=html;
+                        document.getElementById("montotal").innerHTML=monto;
 
                     }
                 });

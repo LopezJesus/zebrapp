@@ -13,14 +13,12 @@
         <!-- Buscador -->
         <li class="nav-item">
             <a>
-                <form class="form-inline" action="/action_page.php">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar...">
+                        <input type="text" class="form-control" placeholder="Buscar..." id="idbusqueda">
                             <div class="input-group-prepend">
-                                <button class="btn buttonColor" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="btn buttonColor" type="submit" onclick="search_producto()"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                     </div>    
-                </form>
             </a>
         </li>
         <li class="nav-item">

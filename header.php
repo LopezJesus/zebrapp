@@ -14,7 +14,7 @@
         <li class="nav-item">
             <a>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar..." id="idbusqueda">
+                        <input type="text" class="form-control" placeholder="Buscar..."value ="<?php if(isset($_GET['text'])){echo $_GET['text'];}else{echo '';}?>" id="idbusqueda">
                             <div class="input-group-prepend">
                                 <button class="btn buttonColor" type="submit" onclick="search_producto()"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>

@@ -118,7 +118,6 @@
                                         
                                         <!-- Modal body -->
                                         <div class="modal-body">
-                                        <form action="" method="post" class="col-12">
                                             <div class="form-group set" style="background-color:white">
                                                 <input type="text" placeholder="Nombre del producto" class="form-control" name="name"></input>
                                             </div>
@@ -129,21 +128,20 @@
                                                 <input type="text" placeholder="Precio" class="form-control" name="price"></input>
                                             </div>
                                             <div class="form-group set">
-                                            <select class="custom-select colorselect">
+                                            <select name="estado" class="custom-select colorselect">
                                                 <option selected>Selecciona un estado</option>
                                                 <option value="1">Activo</option>
-                                                <option value="2">Inactivo</option>
+                                                <option value="0">Inactivo</option>
                                                 </select>
                                             </div>
                                             <div class="form-group ">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                                <input type="file" class="custom-file-input" id="customFileLang" name="imagen" lang="es">
                                                 <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                                             </div>
                                             </div>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Insertar producto</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_producto()">Insertar producto</button>
 
-                                        </form>
                                     </div>
                                     </div>
                                 </div>
@@ -152,7 +150,15 @@
                 </div>
             </div>
         </div>
-        
+        <script type="text/javascript">
+            function save_producto(){
+                let request=new XMLHttpRequest();
+                request.open('POST')
+
+                //18MIN
+            }
+
+        </script>
         <footer>
             <?php
                 require_once('../footer.php');

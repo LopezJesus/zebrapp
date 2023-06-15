@@ -1,3 +1,4 @@
+<header>
 <nav class="navbar navbar-expand-xl headerino navbar-dark sticky-top ">
     <ul class="navbar-nav mr-auto ">
         <!-- Logotipo -->
@@ -34,3 +35,4 @@
         </li>
     </ul>
 </nav>
+</header>

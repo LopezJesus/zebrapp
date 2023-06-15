@@ -21,11 +21,11 @@
       $resultado=mysqli_query($conexion,$sql);
       ?>
 
-        <header>
+    
             <?php
             require_once('header.php');
             ?>
-        </header>
+        
 
           <!--Carrusel-->
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

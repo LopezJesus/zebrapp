@@ -1,3 +1,4 @@
+<?php include ('../conexion.php')?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,15 +16,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body class="panelcontrol" >
-      <?php include ("../conexion.php"); 
-      $sql="select * from usuariosl";
-      $resultado=mysqli_query($conexion,$sql);
-      ?>
-        <header>
             <?php
             require_once('../header.php');
             ?>
-        </header>
         <div style=" margin:10px;"> 
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
@@ -61,21 +56,29 @@
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col"># Producto</th>
+                                    <th scope="col">Producto</th>
                                     <th scope="col">Nombre</th>
+                                    <th scope="col">Descripcion</th>
                                     <th scope="col">Precio</th>
-                                    <th scope="col">Nombre de imagen</th>
                                     <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">001</th>
-                                        <td>Impresora de ejemplo</td>
-                                        <td>$1350.00 MXN</td>
-                                        <td>impresora1.webp</td>
-                                        <td> <i class="fa-solid fa-eye"></i>   <i class="fa-solid fa-pen"></i>   <i class="fa-solid fa-trash"></i> </td>
-                                    </tr>
+                                    <?php
+                                        $sql="SELECT * FROM producto";
+                                        $resultado=mysqli_query($conexion,$sql);
+                                        while($row=mysqli_fetch_array($resultado)){
+                                            echo 
+                                            '<tr>
+                                            <th scope="row">'.$row['idProducto'].'</th>
+                                                <td>'.$row['nomProducto'].'</td>
+                                                <td>'.$row['desProducto'].'</td>
+                                                <td>'.$row['preProducto'].'</td>
+                                                <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                            </tr>';
+                                        }
+                                    ?>
+                            
               
                                 </tbody>
                             </table>
@@ -93,12 +96,4 @@
             ?>
             </footer>
     </body>
-    
-    <script type="text/javascript">
-    function loginadmin() {
-
-       
-}
-
-    </script>
 </html>

@@ -68,7 +68,13 @@
                                 '</div>';
                             ;
                         }
-                        document.getElementById("space-list").innerHTML=html;
+                        if (html==''){
+                            document.getElementById("space-list").innerHTML="<p>No hay resultados</p>";
+
+                        }else{
+                            document.getElementById("space-list").innerHTML=html;
+
+                        }
                     }
                 });
             })();

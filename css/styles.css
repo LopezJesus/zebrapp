@@ -295,3 +295,16 @@ element.style
 .errorusu p{
     color:red;
 }
+
+.set input   {
+    background-color: white !important;
+    color:black !important;
+    border: 1px solid #cccccc !important;
+
+}
+
+
+
+.modal-body{
+    background-color: #141414 !important;
+}

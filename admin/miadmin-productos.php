@@ -1,6 +1,6 @@
 <?php include ('../conexion.php')?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html >
     <head>
         <title>Sistema Ecommerce</title>
         <meta charset="UTF-8">
@@ -19,6 +19,28 @@
             <?php
             require_once('../header.php');
             ?>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
         <div style=" margin:10px;"> 
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
@@ -82,8 +104,49 @@
               
                                 </tbody>
                             </table>
-                            <a href="#"><button class="btn buttonColorin" type="submit"></i>Crear producto</button></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Producto nuevo</button>
+                              <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                        <h4 class="modal-title">Añadir producto</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                        <form action="" method="post" class="col-12">
+                                            <div class="form-group set" style="background-color:white">
+                                                <input type="text" placeholder="Nombre del producto" class="form-control" name="name"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Descripción" class="form-control" name="description"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Precio" class="form-control" name="price"></input>
+                                            </div>
+                                            <div class="form-group set">
+                                            <select class="custom-select colorselect">
+                                                <option selected>Selecciona un estado</option>
+                                                <option value="1">Activo</option>
+                                                <option value="2">Inactivo</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group ">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            </div>
+                                            </div>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Insertar producto</button>
 
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
                         </div>                    
                     </div>
                 </div>

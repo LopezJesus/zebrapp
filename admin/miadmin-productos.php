@@ -17,7 +17,7 @@
     </head>
     <body class="panelcontrol" >
             <?php
-            require_once('../header.php');
+            //require_once('../header.php');
             ?>
 
         <!-- Modal -->
@@ -74,6 +74,7 @@
                     </div>
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
+                    
                     <div class="text-center">
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
@@ -118,33 +119,34 @@
                                         
                                         <!-- Modal body -->
                                         <div class="modal-body">
+
+                                        <input type="text" class="form-control" id="codigo" style="display:none;"></input>
                                             <div class="form-group set" style="background-color:white">
-                                                <input type="text" placeholder="Nombre del producto" class="form-control" name="name"></input>
+                                                <input type="text" placeholder="Nombre del producto" class="form-control" id="name"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Descripción" class="form-control" name="description"></input>
+                                                <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Precio" class="form-control" name="price"></input>
+                                                <input type="text" placeholder="Precio" class="form-control" id="price"></input>
                                             </div>
                                             <div class="form-group set">
-                                            <select name="estado" class="custom-select colorselect">
+                                            <select id="estado" class="custom-select colorselect">
                                                 <option selected>Selecciona un estado</option>
                                                 <option value="1">Activo</option>
                                                 <option value="0">Inactivo</option>
                                                 </select>
                                             </div>
                                             <div class="form-group ">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFileLang" name="imagen" lang="es">
-                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            <div class="form-group">
+                                                <input type="file" class="form-control-file" id="imagen">
                                             </div>
-                                            </div>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_producto()">Insertar producto</button>
 
-                                    </div>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_producto()">Insertar producto</button>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>                    
                     </div>
                 </div>
@@ -152,8 +154,20 @@
         </div>
         <script type="text/javascript">
             function save_producto(){
+                let fd=new FormData();
+                fd.append('codigo',document.getElementById('codigo').value);
+                fd.append('name',document.getElementById('name').value);
+                fd.append('description',document.getElementById('description').value);
+                fd.append('price',document.getElementById('price').value);
+                fd.append('estado',document.getElementById('estado').value);
+                fd.append('imagen',document.getElementById('imagen').value);
+
                 let request=new XMLHttpRequest();
-                request.open('POST')
+                request.open('POST','api/producto-save.php',true);
+                request.onload=function(){
+                    console.log(request)
+                }
+                request.send(fd)
 
                 //18MIN
             }

@@ -35,4 +35,6 @@
         </li>
     </ul>
 </nav>
+<script type="text/javascript" src="js/mainscript.js"></script>
+
 </header>

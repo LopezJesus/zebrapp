@@ -32,7 +32,7 @@
     </div>
     <div class="row" style="background-color:#141414; padding-top:18px; margin-bottom:-18px; ">
         <div class="col-sm-6 text-right ">
-            <p style=""> Politicas de privacidad </p>
+            <p style="color:white"> Politicas de privacidad </p>
         </div>
         <div class="col-sm-6 text-right ">
             <p style="color:white">Cophyright © 2023 Todos los derechos reservados.</p>

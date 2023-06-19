@@ -139,7 +139,7 @@
                                             </div>
                                             <div class="form-group ">
                                             <div class="form-group">
-                                                <input type="file" class="form-control-file" id="imagen">
+                                                <input name="imagen" type="file" class="form-control-file" id="imagen">
                                             </div>
 
                                             <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_producto()">Insertar producto</button>
@@ -154,22 +154,29 @@
         </div>
         <script type="text/javascript">
             function save_producto(){
+                
                 let fd=new FormData();
                 fd.append('codigo',document.getElementById('codigo').value);
                 fd.append('name',document.getElementById('name').value);
                 fd.append('description',document.getElementById('description').value);
                 fd.append('price',document.getElementById('price').value);
                 fd.append('estado',document.getElementById('estado').value);
-                fd.append('imagen',document.getElementById('imagen').value);
-
+                fd.append('imagen',document.getElementById('imagen').files[0]);
                 let request=new XMLHttpRequest();
                 request.open('POST','api/producto-save.php',true);
                 request.onload=function(){
-                    console.log(request)
+                    if(request.readyState==4 && request.status==200){
+                        let response=JSON.parse(request.responseText);
+                        console.log(response);
+                        if(response.state==true){
+                            alert("correcto");
+                        }else{
+                            alert(response.detail);
+                        }
+                    }
                 }
-                request.send(fd)
+                request.send(fd);
 
-                //18MIN
             }
 
         </script>

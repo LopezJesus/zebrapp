@@ -20,7 +20,7 @@ if($nombre==""){
         $response->detail="Falta la descripcion";
     }else{
         if(isset($_FILES['imagen'])){
-            $nombre_imagen = date("YmdHis").".jpg";  
+            $nombre_imagen = date("YmdHis").".webp";  
             $sql="INSERT INTO producto (nomProducto,desProducto,preProducto,estado,imgProducto)
             VALUES ('$nombre','$descripcion',$precio,$estado,'$nombre_imagen')";
 

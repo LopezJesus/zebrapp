@@ -19,11 +19,7 @@
       $sql="select * from usuariosl";
       $resultado=mysqli_query($conexion,$sql);
       ?>
-        <header>
-            <?php
-            require_once('../header.php');
-            ?>
-        </header>
+  
         <div style=" margin:10px;"> 
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
@@ -58,33 +54,78 @@
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                     <div class="text-center">
-                            <table class="table table-bordered">
+                    <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col"># Producto</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Nombre de imagen</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Telefono</th>
                                     <th scope="col">Acciones</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">001</th>
-                                        <td>Impresora de ejemplo</td>
-                                        <td>$1350.00 MXN</td>
-                                        <td>impresora1.webp</td>
-                                        <td> <i class="fa-solid fa-eye"></i>   <i class="fa-solid fa-pen"></i>   <i class="fa-solid fa-trash"></i> </td>
-                                    </tr>
-              
+                                    <?php
+                                        $sql="SELECT ped.*,usu.*,pro.*,case when ped.estado=2 then 'Pendiente' else 'Otro' end
+                                        estadotexto FROM pedidos ped
+                                        inner join usuariosl usu 
+                                        on ped.idUsuario=usu.idUsuarios
+                                        inner join producto pro 
+                                        on ped.idProducto=pro.idProducto
+                                        where ped.estado=2";
+
+                                        $resultado=mysqli_query($conexion,$sql);
+                                        while($row=mysqli_fetch_array($resultado)){
+                                            echo 
+                                            '<tr>
+                                            <th scope="row">'.$row['idPedido'].'</th>
+                                                <td>'.$row['idUsuario'].' - '.$row['userUsuario'].'</td>
+                                                <td>'.$row['idProducto'].' - '.$row['nomProducto'].'</td>
+                                                <td>'.$row['FechaPedido'].'</td>
+                                                <td>'.$row['estadotexto'].'</td>
+                                                <td>'.$row['dirPedido'].'</td>
+                                                <td>'.$row['telPedido'].'</td>
+
+                                                <td> <button onclick="despachado('.$row['idPedido'].')"class="btn btn-dark"> Despachar </button> </td>
+                                            </tr>';
+                                        }
+                                    ?>
+               
+        
                                 </tbody>
-                            </table>
+                            </table>                       
                         </div>     
                     </div>
                 </div>
             </div>
         </div>
-        
+        <script type="text/javascript">
+            function despachado(idPedido){
+                
+                let fd=new FormData();
+                fd.append('idPedido',idPedido);
+                let request=new XMLHttpRequest();
+                request.open('POST','api/pedido-confirm.php',true);
+                request.onload=function(){
+                    if(request.readyState==4 && request.status==200){
+                        let response=JSON.parse(request.responseText);
+                        console.log(response);
+                        if(response.state==true){
+                            window.location.reload();
+                        }else{
+                            alert(response.detail);
+                        }
+                    }
+                }
+                request.send(fd);
+
+            }
+
+        </script>
         <footer>
             <?php
                 require_once('../footer.php');

@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<?php include ('../conexion.php')?>
+<!DOCTYPE html >
+<html >
     <head>
         <title>Sistema Ecommerce</title>
         <meta charset="UTF-8">
@@ -15,20 +16,36 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body class="panelcontrol" >
-      <?php include ("../conexion.php"); 
-      $sql="select * from usuariosl";
-      $resultado=mysqli_query($conexion,$sql);
-      ?>
-        <header>
             <?php
-            require_once('../header.php');
+            //require_once('../header.php');
             ?>
-        </header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
         <div style=" margin:10px;"> 
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
             <div class="col-sm-4">
-                <h1 >Usuarios</h1>
+                <h1 >Productos</h1>
                 <hr class="lineazul">
             </div>
             <div id="sidebar"class="container-fluid">
@@ -57,49 +74,130 @@
                     </div>
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
+                    
                     <div class="text-center">
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col"># Usuario</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Numero de telefono</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Nombre de usuario</th>
+                                    <th scope="col">Nombre Completo</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Correo electrónico</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Tipo de usuario</th>
                                     <th scope="col">Acciones</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">001</th>
-                                        <td>Joel11</td>
-                                        <td>joelin@gmail.com</td>
-                                        <td>664-111-7533  </td>
-                                        <td> <i class="fa-solid fa-eye"></i>   <i class="fa-solid fa-pen"></i>   <i class="fa-solid fa-trash"></i> </td>
-                                    </tr>
+                                    <?php
+                                        $sql="SELECT * FROM usuariosl";
+                                        $resultado=mysqli_query($conexion,$sql);
+                                        while($row=mysqli_fetch_array($resultado)){
+                                            echo 
+                                            '<tr>
+                                            <th scope="row">'.$row['idUsuarios'].'</th>
+                                                <td>'.$row['userUsuario'].'</td>
+                                                <td>'.$row['NombreUsuario'].'</td>
+                                                <td>'.$row['ApellidoUsuario'].'</td>
+                                                <td>'.$row['emailUsuario'].'</td>
+                                                <td>'.$row['telefonoUsuario'].'</td>
+                                                <td>'.$row['ciudadUsuario'].','.$row['codposUsuario'].','.$row['Dirección'].'</td>
+                                                <td>'.$row['tipoUsuario'].'</td>
+                                                <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                            </tr>';
+                                        }
+                                    ?>
+                            
               
                                 </tbody>
                             </table>
-                            <a href="#"><button class="btn buttonColorin" type="submit"></i>Registrar usuarios</button></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Crear nuevo usuario</button>
+                              <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                        <h4 class="modal-title">Nuevo usuario</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
 
-                        </div>     
+                                        <input type="text" class="form-control" id="codigo" style="display:none;"></input>
+                                            <div class="form-group set" style="background-color:white">
+                                                <input type="text" placeholder="Nombre de usuario" class="form-control" id="name"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="description"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Apellidos del usuario" class="form-control" id="price"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Correo electronico" class="form-control" id="price"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Contraseña temporal" class="form-control" id="price"></input>
+                                            </div>
+                                            <div class="form-group set">
+                                            <select id="estado" class="custom-select colorselect">
+                                                <option selected>Selecciona un tipo de usuario</option>
+                                                <option value="1">Normal</option>
+                                                <option value="0">Admin</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group ">
+                                            <div class="form-group">
+                                                <input name="imagen" type="file" class="form-control-file" id="imagen">
+                                            </div>
+
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_user()">Insertar usuario</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
             </div>
         </div>
-        
+        <script type="text/javascript">
+            function save_user(){
+                
+                let fd=new FormData();
+                fd.append('codigo',document.getElementById('codigo').value);
+                fd.append('name',document.getElementById('name').value);
+                fd.append('description',document.getElementById('description').value);
+                fd.append('price',document.getElementById('price').value);
+                fd.append('estado',document.getElementById('estado').value);
+                fd.append('imagen',document.getElementById('imagen').files[0]);
+                let request=new XMLHttpRequest();
+                request.open('POST','api/user-save.php',true);
+                request.onload=function(){
+                    if(request.readyState==4 && request.status==200){
+                        let response=JSON.parse(request.responseText);
+                        console.log(response);
+                        if(response.state==true){
+                            alert("correcto");
+                        }else{
+                            alert(response.detail);
+                        }
+                    }
+                }
+                request.send(fd);
+
+            }
+
+        </script>
         <footer>
             <?php
                 require_once('../footer.php');
             ?>
             </footer>
     </body>
-    
-    <script type="text/javascript">
-    function loginadmin() {
-
-       
-}
-
-    </script>
 </html>

@@ -1,3 +1,5 @@
+<?php session_start();   
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,8 +63,7 @@
 
           <div class="container   ">
             <div class="row bg-white text-center">
-              <div class="col-sm-4  "> <h3>Impresoras   </h3>               
-
+              <div class="col-sm-4  "> <h3>Impresoras   </h3>      
                 <img class="d-block w-100" src="assets\Productos\impresora1.webp">
                 <div><button class="btn buttonColorin ">Ver detalles</button> </div>
 

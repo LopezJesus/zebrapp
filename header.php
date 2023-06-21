@@ -1,3 +1,4 @@
+
 <header>
 <nav class="navbar navbar-expand-xl headerino navbar-dark sticky-top ">
     <ul class="navbar-nav mr-auto ">
@@ -22,7 +23,8 @@
                     </div>    
             </a>
         </li>
-        <li class="nav-item">
+        <?php if(isset($_SESSION['userUsuario'])){ ?>
+            <li class="nav-item">
             <a class="nav-link" href="micuenta.php"><i class="fa-solid fa-user item-option"></i></a>
         </li>
     
@@ -33,6 +35,11 @@
         <li class="nav-item">
             <a class="nav-link" href="logout.php"><i class="fa-solid fa-right-to-bracket item-option"></i></a>
         </li>
+        <?php }else{?>
+            <li class="nav-item">
+            <a class="nav-link" href="loginuser.php"><i class="fa-solid fa-user item-option"></i></a>
+        </li>
+        <?php }?>
     </ul>
 </nav>
 <script type="text/javascript" src="js/mainscript.js"></script>

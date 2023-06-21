@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,8 @@
     </head>
     <body class="panelcontrol" >
       <?php include ("conexion.php"); 
-      $sql="select * from usuariosl";
+      $nombreUsuario = $_SESSION['userUsuario'];
+      $sql = "SELECT * FROM usuariosl WHERE userUsuario = '$nombreUsuario'";
 
       $resultado=mysqli_query($conexion,$sql);
       ?>
@@ -25,6 +27,10 @@
             require_once('header.php');
             ?>
         </header>
+        <?php
+              while($filas=mysqli_fetch_assoc($resultado)){
+                
+            ?>
         <div style=" margin:10px;">        
             <div class="col-sm-4">
                 <h1 >Ajustes</h1>
@@ -54,22 +60,26 @@
 
                     <div class="col-sm-8 setUser" style="padding-left: 25px !important; ">
                         <p> Ajusta tus datos personales si es necesario, a su vez se cuentan con las opciones de cambiar la dirección de los pedidos y tu contraseña.</p>
-                        <div class="text-center">
+                        <div class="text-left">
                         <form action="" method="post" class="col-12">
                             <div class="form-group">
                                 <h3> Datos personales </h3>
-                                <input type="text" placeholder="Nombre(s)" class="form-control" name="names"></input>
+                                <label >Nombre(s): </label>
+                                <input type="text" placeholder="Nombre(s)" class="form-control" id="names" value="<?php echo $filas['NombreUsuario'] ?>"> </input>
                             </div>
                             <div class="form-group ">
-                                <input type="text" placeholder="Nombre a mostrar" class="form-control" name="usu"></input>
+                                <label >Nombre a mostrar: </label>
+                                <input type="text" placeholder="Nombre a mostrar" class="form-control" id="usu" value="<?php echo $filas['userUsuario'] ?>"></input>
                             </div>
                             <div class="form-group ">
-                                <input type="text" placeholder="Dirección de correo electrónico" class="form-control" name="email"></input>
+                                <label >Dirección de correo electrónico: </label>
+                                <input type="text" placeholder="Dirección de correo electrónico" class="form-control" id="email" value="<?php echo $filas['emailUsuario'] ?>"></input>
                             </div>
                             <div class="form-group ">
-                                <input type="text" placeholder="Teléfono" class="form-control" name="phone"></input>
-                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
-                            </div>
+                                <label >Teléfono: </label>
+                                <input type="text" placeholder="Teléfono" class="form-control" id="phone" value="<?php echo $filas['telefonoUsuario'] ?>"></input>
+                                <button id="actualizarUsuario" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
+                            </div> <?php } ?>
                         </form>
 
                         <form action="" method="post" class="col-12">
@@ -90,7 +100,7 @@
                         <form action="" method="post" class="col-12">
                             <div class="form-group">
                                 <h3> Cambio de contraseña </h3>
-                                <input type="password" placeholder="Contraseña actual" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Contraseña actual" class="form-control" name="phone"> </input>
                             </div>
                             <div class="form-group">
                                 <input type="password" placeholder="Nueva contraseña" class="form-control" name="phone"></input>
@@ -104,7 +114,11 @@
                     </div>
                 </div>
             </div>
+            
         </div>
+        <script type="text/javascript">
+
+        </script>
         <footer>
             <?php
                 require_once('footer.php');

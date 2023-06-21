@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,18 +18,18 @@
     </head>
     <body class="panelcontrol" >
       <?php include ("conexion.php"); 
-      $sql="select * from usuariosl";
+      $nombreUsuario = $_SESSION['userUsuario'];
+      $sql = "SELECT * FROM usuariosl WHERE userUsuario = '$nombreUsuario'";
+
 
       $resultado=mysqli_query($conexion,$sql);
       ?>
-        <header>
             <?php
             require_once('header.php');
             ?>
-        </header>
             <?php
               while($filas=mysqli_fetch_assoc($resultado)){
-
+                
             ?>
         <div style=" margin:10px;">        
             <div class="col-sm-4">
@@ -59,15 +61,7 @@
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                         <span class="icon-grande center"><i class="fa-solid fa-user"></i></span>
                         <p>Hola <span class="highlight"><?php echo $filas['userUsuario'] ?></span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
-                        <!--<p> Número de usuario: <?php echo $filas['idUsuarios'] ?></p>
-                        <h4> Nombre: <?php echo $filas['NombreUsuario'] ?>  </h1>
-                        <h4> Apellido: <?php echo $filas['ApellidoUsuario'] ?>  </h1>
-                        <h4> Nombre: <?php echo $filas['emailUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['telefonoUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['ciudadUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['codposUsuario'] ?>  </h4>
-                        <h4> Nombre: <?php echo $filas['Dirección'] ?>  </h4>
-                        <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p>--> <?php } ?>
+                      </p> <?php } ?>
                     </div>
                 </div>
             </div>

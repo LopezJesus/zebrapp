@@ -12,9 +12,9 @@
           die("Error de conexión: " . $con->connect_error);
       }
       // Actualizar los valores en la tabla de usuarios
-      $sql = "UPDATE usuariosl SET NombreUsuario = ?, ApellidoUsuario = ?, emailUsuario = ?, telefonoUsuario = ? WHERE userUsuario = '$nombreUsuario'"; 
+      $sql = "UPDATE usuariosl SET ciudadUsuario = ?, codposUsuario = ?, Dirección = ? WHERE userUsuario = '$nombreUsuario'"; 
       $stmt = $con->prepare($sql);
-      $stmt->bind_param("ssss", $data['name'], $data['apellido'], $data['email'], $data['phone']);
+      $stmt->bind_param("sss", $data['ciudad'], $data['codigopostal'], $data['direccion']);
       if ($stmt->execute()) {
           echo "Usuario actualizado correctamente";
       } else {
@@ -25,3 +25,4 @@
       $con->close();
       
 ?>
+

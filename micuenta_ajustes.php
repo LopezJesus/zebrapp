@@ -68,8 +68,8 @@
                                 <input type="text" placeholder="Nombre(s)" class="form-control" id="names" value="<?php echo $filas['NombreUsuario'] ?>"> </input>
                             </div>
                             <div class="form-group ">
-                                <label >Nombre a mostrar: </label>
-                                <input type="text" placeholder="Nombre a mostrar" class="form-control" id="usu" value="<?php echo $filas['userUsuario'] ?>"></input>
+                                <label >Apellidos: </label>
+                                <input type="text" placeholder="Nombre a mostrar" class="form-control" id="apellido" value="<?php echo $filas['ApellidoUsuario'] ?>"></input>
                             </div>
                             <div class="form-group ">
                                 <label >Dirección de correo electrónico: </label>
@@ -79,25 +79,25 @@
                                 <label >Teléfono: </label>
                                 <input type="text" placeholder="Teléfono" class="form-control" id="phone" value="<?php echo $filas['telefonoUsuario'] ?>"></input>
                                 <button id="actualizarUsuario" style="margin-top:33px" class="btn buttonColor" type="button" onclick="updateUser()"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
-                            </div> <?php } ?>
+                            </div> 
                         </form>
 
-                        <form action="" method="post" class="col-12">
+                        <form action="" method="" class="col-12">
                             <div class="form-group text-center">
                                 <h3>  Datos de pedidos </h3>
-                                <input type="text" placeholder="Ciudad" class="form-control" name="names"></input>
+                                <input type="text" placeholder="Ciudad" class="form-control" name="ciudad" id="ciudad"  value="<?php echo $filas['ciudadUsuario'] ?>" ></input>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Codigo postal" class="form-control" name="phone"></input>
+                                <input type="text" placeholder="Codigo postal" class="form-control" name="codigopostal" id="codigopostal"  value="<?php echo $filas['codposUsuario'] ?>"></input>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Dirección" class="form-control" name="phone"></input>
-                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="button"><i class="fa-solid fa-pen"></i>  Actualizar datos de pedido</button>
+                                <input type="text" placeholder="Dirección" class="form-control" name="direccion" id="direccion" value="<?php echo $filas['Dirección'] ?>"></input>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="button" onclick="updatedireccion()"><i class="fa-solid fa-pen"></i>  Actualizar datos de pedido</button>
 
                             </div>
                         </form>
                         
-                        <form action="" method="post" class="col-12">
+                        <form action="" class="col-12">
                             <div class="form-group">
                                 <h3> Cambio de contraseña </h3>
                                 <input type="password" placeholder="Contraseña actual" class="form-control" name="pswrd"> </input>
@@ -110,7 +110,7 @@
                                 <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i> Cambiar contraseña</button>
                             </div>
                             </form>
-                        </div>
+                        </div> <?php } ?>
                     </div>
                 </div>
             </div>
@@ -120,19 +120,13 @@
             function updateUser()
             {
                 var name = document.getElementById('names').value;
-                var username = document.getElementById('usu').value;
+                var apellido = document.getElementById('apellido').value;
                 var email = document.getElementById('email').value;
                 var phone = document.getElementById('phone').value;
-
-                console.log(name);
-                console.log(username);
-                console.log(name);
-                console.log(email);
-                console.log(phone);
                 
                 var data = {
                     name: name,
-                    username: username,
+                    apellido: apellido,
                     email: email,
                     phone: phone
                 };
@@ -145,6 +139,37 @@
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         // La solicitud se completó correctamente
                         console.log(xhr.responseText);
+                        alert(xhr.responseText);
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+
+            function updatedireccion()
+            {
+                var ciudad = document.getElementById('ciudad').value;
+                var codigopostal = document.getElementById('codigopostal').value;
+                var direccion = document.getElementById('direccion').value;
+                console.log(ciudad);
+                console.log(codigopostal);
+                console.log(direccion);
+
+                
+                var data = {
+                    ciudad: ciudad,
+                    codigopostal: codigopostal,
+                    direccion: direccion,
+                };
+                
+                // Realizar la solicitud PUT utilizando AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('PUT', 'services/usuario/actualizar_usuario_direccion.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // La solicitud se completó correctamente
+                        console.log(xhr.responseText);
+                        alert(xhr.responseText);
                     }
                 };
                 xhr.send(JSON.stringify(data));

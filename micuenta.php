@@ -60,8 +60,16 @@
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                         <span class="icon-grande center"><i class="fa-solid fa-user"></i></span>
-                        <p>Hola <span class="highlight"><?php echo $filas['userUsuario'] ?></span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
-                      </p> <?php } ?>
+                        <p>Hola <span class="highlight"><?php echo $filas['userUsuario'] ?></span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p>
+                        <h4>Tus datos</h4>
+                        <li>Nombre(s): <span class="highlight"><?php echo $filas['NombreUsuario'] ?></span></li> 
+                        <li>Apellidos: <span class="highlight"><?php echo $filas['ApellidoUsuario'] ?></span></li> 
+                        <li>Correo electrónico: <span class="highlight"><?php echo $filas['emailUsuario'] ?></span></li> 
+                        <li>Teléfono: <span class="highlight"><?php echo $filas['telefonoUsuario'] ?></span></li> 
+                        <li>Dirección de envio: <span class="highlight"><?php echo $filas['ciudadUsuario']," ", $filas['codposUsuario'] ," ", $filas['Dirección']?></span></li> 
+
+                      <?php } ?>
+                      
                     </div>
                 </div>
             </div>

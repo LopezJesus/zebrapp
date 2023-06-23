@@ -46,9 +46,7 @@
                             <li class="nav-item ">
                                 <a class="nav-link active " href="miadmin-pedidos.php"> <i class="fa-solid fa-truck"></i> Pedidos</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link " href="miadmin-logout.php"><i class="fa-solid fa-right-from-bracket"></i>  Cerrar sesión</a>
-                            </li>
+
                         </ul>
                     </div>
 

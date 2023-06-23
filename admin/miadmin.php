@@ -50,15 +50,13 @@
                             <li class="nav-item ">
                                 <a class="nav-link " href="miadmin-pedidos.php"> <i class="fa-solid fa-truck"></i> Pedidos</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link " href="miadmin-logout.php"><i class="fa-solid fa-right-from-bracket"></i>  Cerrar sesión</a>
-                            </li>
+
                         </ul>
                     </div>
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                         <span class="icon-grande center"><i class="fa-solid fa-user-secret"></i></span>
-                        <p>Hola administrador <span class="highlight"> &lt;Admin&gt;</span>, desde aquí puedes modificar tus datos, ver tus pedidos, facturas y cerrar sesión.</p> 
+                        <p>Bienvenido administrador <span class="highlight"> &lt;Admin&gt;</span>, desde aqui puedes crear, modificar y borrar productos; asi como insertar nuevos usuarios; por ulitmo puedes despachar y editar los pedidos</p> 
                     </div>
                 </div>
             </div>

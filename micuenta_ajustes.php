@@ -100,14 +100,14 @@
                         <form action="" class="col-12">
                             <div class="form-group">
                                 <h3> Cambio de contraseña </h3>
-                                <input type="password" placeholder="Contraseña actual" class="form-control" name="pswrd"> </input>
+                                <input type="password" placeholder="Contraseña actual" id="currentPassword" class="form-control" name="pswrd"> </input>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Nueva contraseña" class="form-control" name="pswrdnew"></input>
+                                <input type="password" placeholder="Nueva contraseña" id="newPassword" class="form-control" name="pswrdnew"></input>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Confirmar nueva contraseña" class="form-control" name="pswrdnew-confirm"></input>
-                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i> Cambiar contraseña</button>
+                                <input type="password" placeholder="Confirmar nueva contraseña" id="confirmPassword" class="form-control" name="pswrdnew-confirm"></input>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="button" onclick="updatePassword()"><i class="fa-solid fa-pen"></i> Cambiar contraseña</button>
                             </div>
                             </form>
                         </div> <?php } ?>
@@ -173,6 +173,39 @@
                     }
                 };
                 xhr.send(JSON.stringify(data));
+            }
+
+            function updatePassword(){
+                var currentPassword = document.getElementById('currentPassword').value;
+                var newPassword = document.getElementById('newPassword').value;
+                var confirmPassword = document.getElementById('confirmPassword').value;
+                console.log(currentPassword);
+                console.log(newPassword);
+                console.log(confirmPassword);
+                var data = {
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                };
+                if(newPassword==confirmPassword){
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('PUT', 'services/usuario/cambiar_contraseña.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onreadystatechange = function() {
+                    
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                        // La solicitud se completó correctamente
+                        console.log(xhr.responseText);
+                        alert(xhr.responseText);
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+
+                }
+
+                else{
+                    alert("La nueva contraseña y la confirmación no coinciden.");
+
+                }
             }
         </script>
         <footer>

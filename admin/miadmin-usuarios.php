@@ -42,7 +42,8 @@
         </div>
 
         <div style=" margin:10px;"> 
-        <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
+
+            <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
             <div class="col-sm-4">
                 <h1 >Productos</h1>
@@ -72,22 +73,21 @@
                             </li>
                         </ul>
                     </div>
-
+                
                     <div class="col-sm-8" style="padding-left: 25px !important;">
-                    
-                    <div class="text-center">
+                        <div class="text-center">
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Nombre de usuario</th>
-                                    <th scope="col">Nombre Completo</th>
-                                    <th scope="col">Apellidos</th>
-                                    <th scope="col">Correo electrónico</th>
-                                    <th scope="col">Teléfono</th>
-                                    <th scope="col">Dirección</th>
-                                    <th scope="col">Tipo de usuario</th>
-                                    <th scope="col">Acciones</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Nombre de usuario</th>
+                                        <th scope="col">Nombre Completo</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Correo electrónico</th>
+                                        <th scope="col">Teléfono</th>
+                                        <th scope="col">Dirección</th>
+                                        <!--<th scope="col">Tipo de usuario</th>-->
+                                        <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -104,13 +104,10 @@
                                                 <td>'.$row['emailUsuario'].'</td>
                                                 <td>'.$row['telefonoUsuario'].'</td>
                                                 <td>'.$row['ciudadUsuario'].','.$row['codposUsuario'].','.$row['Dirección'].'</td>
-                                                <td>'.$row['tipoUsuario'].'</td>
                                                 <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
-                                        }
-                                    ?>
-                            
-              
+                                            }
+                                    //<td>'.$row['tipoUsuario'].'</td>?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Crear nuevo usuario</button>
@@ -128,7 +125,7 @@
                                         <!-- Modal body -->
                                         <div class="modal-body">
 
-                                        <input type="text" class="form-control" id="codigo" style="display:none;"></input>
+                                            <input type="text" class="form-control" id="codigo" style="display:none;"></input>
                                             <div class="form-group set" style="background-color:white">
                                                 <input type="text" placeholder="Nombre de usuario" class="form-control" id="name"></input>
                                             </div>
@@ -194,10 +191,10 @@
             }
 
         </script>
-        <footer>
+                    </div>
+
             <?php
-                require_once('../footer.php');
+            require_once('../footer.php');
             ?>
-            </footer>
     </body>
 </html>

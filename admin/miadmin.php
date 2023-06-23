@@ -64,11 +64,9 @@
             </div>
         </div>
         
-        <footer>
             <?php
                 require_once('../footer.php');
             ?>
-            </footer>
     </body>
     
     <script type="text/javascript">

@@ -180,10 +180,11 @@
             }
 
         </script>
-        <footer>
+        </div>
+
             <?php
+            
                 require_once('../footer.php');
             ?>
-            </footer>
     </body>
 </html>

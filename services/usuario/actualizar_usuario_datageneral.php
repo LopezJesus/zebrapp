@@ -1,5 +1,5 @@
 <?php session_start();
-        include ("../conexionbd.php"); 
+        include_once ("../conexionbd.php"); 
       $nombreUsuario = $_SESSION['userUsuario'];
       //$sql = "SELECT * FROM usuariosl ";
 

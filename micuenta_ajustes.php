@@ -139,7 +139,7 @@
                 
                 // Realizar la solicitud PUT utilizando AJAX
                 var xhr = new XMLHttpRequest();
-                xhr.open('PUT', 'services/usuario/actualizar_usuario.php', true);
+                xhr.open('PUT', 'services/usuario/actualizar_usuario_datageneral.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {

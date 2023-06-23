@@ -61,7 +61,7 @@
                     <div class="col-sm-8 setUser" style="padding-left: 25px !important; ">
                         <p> Ajusta tus datos personales si es necesario, a su vez se cuentan con las opciones de cambiar la dirección de los pedidos y tu contraseña.</p>
                         <div class="text-left">
-                        <form action="" method="post" class="col-12">
+                        <form action="" id="user_form" class="col-12">
                             <div class="form-group">
                                 <h3> Datos personales </h3>
                                 <label >Nombre(s): </label>
@@ -78,7 +78,7 @@
                             <div class="form-group ">
                                 <label >Teléfono: </label>
                                 <input type="text" placeholder="Teléfono" class="form-control" id="phone" value="<?php echo $filas['telefonoUsuario'] ?>"></input>
-                                <button id="actualizarUsuario" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
+                                <button id="actualizarUsuario" style="margin-top:33px" class="btn buttonColor" type="button" onclick="updateUser()"><i class="fa-solid fa-pen"></i>  Actualizar datos personales</button>
                             </div> <?php } ?>
                         </form>
 
@@ -92,7 +92,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" placeholder="Dirección" class="form-control" name="phone"></input>
-                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i>  Actualizar datos de pedido</button>
+                                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="button"><i class="fa-solid fa-pen"></i>  Actualizar datos de pedido</button>
 
                             </div>
                         </form>
@@ -100,13 +100,13 @@
                         <form action="" method="post" class="col-12">
                             <div class="form-group">
                                 <h3> Cambio de contraseña </h3>
-                                <input type="password" placeholder="Contraseña actual" class="form-control" name="phone"> </input>
+                                <input type="password" placeholder="Contraseña actual" class="form-control" name="pswrd"> </input>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Nueva contraseña" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Nueva contraseña" class="form-control" name="pswrdnew"></input>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Confirmar nueva contraseña" class="form-control" name="phone"></input>
+                                <input type="password" placeholder="Confirmar nueva contraseña" class="form-control" name="pswrdnew-confirm"></input>
                                 <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-pen"></i> Cambiar contraseña</button>
                             </div>
                             </form>
@@ -117,7 +117,38 @@
             
         </div>
         <script type="text/javascript">
+            function updateUser()
+            {
+                var name = document.getElementById('names').value;
+                var username = document.getElementById('usu').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
 
+                console.log(name);
+                console.log(username);
+                console.log(name);
+                console.log(email);
+                console.log(phone);
+                
+                var data = {
+                    name: name,
+                    username: username,
+                    email: email,
+                    phone: phone
+                };
+                
+                // Realizar la solicitud PUT utilizando AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('PUT', 'services/usuario/actualizar_usuario.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // La solicitud se completó correctamente
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
         </script>
         <footer>
             <?php

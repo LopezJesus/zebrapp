@@ -33,11 +33,11 @@
         </li>
         
         <li class="nav-item">
-            <a class="nav-link" href="logout.php"><i class="fa-solid fa-right-to-bracket item-option"></i></a>
+            <a class="nav-link" href="logout.php"><i class="fa-solid fa-right-from-bracket item-option"></i></a>
         </li>
         <?php }else{?>
             <li class="nav-item">
-            <a class="nav-link" href="loginuser.php"><i class="fa-solid fa-user item-option"></i></a>
+            <a class="nav-link" href="loginuser.php"><i class="fa-solid fa-right-to-bracket item-option"></i></a>
         </li>
         <?php }?>
     </ul>

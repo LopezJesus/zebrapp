@@ -1,7 +1,7 @@
 <?php
 include('../conexionbd.php');
 $response= new stdClass();
-
+$userId=$_POST['userId'];
 function textoestado($estado){
     switch($estado){
         case '1':
@@ -10,6 +10,9 @@ function textoestado($estado){
         case '2':
             return 'Por pagar';
             break;
+
+        case '3':
+            return 'Pagado';
         default:
             break;
     }
@@ -19,12 +22,14 @@ $i=0;
 
 $sql="select *,ped.estado estadoped from pedidos ped 
 inner join producto pro on ped.idProducto=pro.idProducto 
-where ped.estado!=1";
+where ped.estado!=1 and idUsuario=$userId";
 $result=mysqli_query($con,$sql);
 while($row=mysqli_fetch_array($result)){
     $obj=new stdClass();
     $obj->idPedido=$row['idPedido'];
-    $obj->idProducto=['idProducto'];
+    $obj->idProducto=$row['idProducto'];
+    $obj->idUsuario=$row['idUsuario'];
+
     $obj->nomProducto=utf8_encode($row['nomProducto']);
     $obj->FechaPedido=$row['FechaPedido'];
     $obj->dirPedido=utf8_encode($row['dirPedido']);

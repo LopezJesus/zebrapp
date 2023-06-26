@@ -25,46 +25,71 @@ if(!isset($_SESSION['idUsuarios'])){
       <?php include ("conexion.php"); 
       $sql="select * from usuariosl";
       $resultado=mysqli_query($conexion,$sql);
+      $idUsu= $_SESSION['idUsuarios'];
+
       ?>
-        <header>
             <?php
             require_once('header.php');
             ?>
-        </header>
-        <div class="container text-left" style="background-color:#d0d0d0; margin 30px;">
-            <h1> Mis pedidos </h1>
-            <div class="lineazul" style="width:300px; margin-bottom:35px;"></div>
-            <div class="container-fluid-sm" style="background-color:white" id="space-list">
+        <div style=" margin:10px;">        
+            <div class="col-sm-4">
+                <h1 >Mis Pedidos</h1>
+                <hr class="lineazul">
             </div>
-            <div class="container-fluid">
+            <div id="sidebar"class="container-fluid">
                 <div class="row">
+                    <div class="col-sm-4" style="background-color:#141414; padding: 0px">
+                        <ul class="nav flex-column navbarleftside">
+                            <li class="nav-item">
+                                <a class="nav-link" href="micuenta.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="pedido.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="micuenta_facturas.php"><i class="fa-solid fa-book"></i>  Facturas</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a class="nav-link " href="micuenta_ajustes.php"> <i class="fa-solid fa-gear"></i>  Ajustes</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>  Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="col-sm-8 text-left">
-                            <h3>Datos de pago</h3>
-                            <h4><b>Banco:</b> BBVA</h4>
-                            <h4><b>No de Cuenta:</b> xxx-xxx-125</h4>
-                            <h4><b>Representante:</b> Agente vendedor #1</h4>
-                           <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
+                    <div class="container-fluid-sm" style="background-color:white" id="space-list"></div>
+                    <div class="row">
+                    <div class="col-sm-6 text-left">
+                    <h3>Datos de pago</h3>
+                        <h4><b>Banco:</b> BBVA</h4>
+                        <h4><b>No de Cuenta:</b> xxx-xxx-125</h4>
+                        <h4><b>Representante:</b> Agente vendedor #1</h4>
+                        <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
 
                     </div>
-                    <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
-
+                    <div class="col-sm-6 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <footer>  
 
         <?php
             require_once('footer.php');
         ?>
-        </footer>
-
+  
 
         <script type="text/javascript">
+
+            var userId = <?php echo json_encode($idUsu); ?>; // Obtén el ID de usuario desde PHP
+
             (function(){
                 $.ajax({
                     url:'services/pedido/get_procesados.php',
                     type:'POST',
-                    data:{},
+                    data:{
+                        userId:userId
+                    },
                     success:function(data){
                         console.log(data);
                         let html='';
@@ -81,6 +106,8 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<h6><b>Estado: </b> ' +data.datos[i].estado+'</h5>'+
                                         '<h6><b>Dirección: </b>' +data.datos[i].dirPedido+'</h5>'+
                                         '<h6><b>Telefono: </b>' +data.datos[i].telPedido+'</h5>'+
+                                        '<h6><b>IdUsu: </b>' +data.datos[i].idUsuario+'</h5>'+
+
                                     '</div>'+    
                                     '<div class="col-sm-2  ">'+
                                         '<h5>Cantidad</h5>'+

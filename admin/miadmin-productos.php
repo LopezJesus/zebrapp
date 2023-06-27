@@ -127,7 +127,7 @@
                                                 
                                                 <td> <button type="button"  
                                                 data-nomb ="'.$row['nomProducto'].'" data-id="'.$row['idProducto'].'" 
-                                                data-id="'.$row['idProducto'].'" data-tipo="'.$row['tipoProducto'].'" 
+                                                data-tipo="'.$row['tipoProducto'].'" 
                                                 data-des="'.$row['desProducto'].'" data-precio="'.$row['preProducto'].'"
                                                 data-estado="'.$row['estado'].'" 
                                                 data-toggle="modal" data-target="#editmodal" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
@@ -283,7 +283,7 @@
                     if(request.readyState==4 && request.status==200){
                         let response=JSON.parse(request.responseText);
                         console.log(response);
-                        if(response.state==true){
+                        if(response.succes==true){
                             alert("correcto");
                             window.location.reload();
 

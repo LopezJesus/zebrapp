@@ -19,33 +19,7 @@
     </head>
     <body class="backgroundson">
       <?php
-        /*if(isset($_POST['enviar'])){
-          
-          include("conexion.php");
-          $usuario=$_POST['usuario'];
-          $password=$_POST['password'];
-          
-          $sql="select * from usuariosl";
-      
-          $resultado=mysqli_query($conexion,$sql);
-          if($fila=mysqli_fetch_assoc($resultado)){
-            echo "<script language='JavaScript'> 
-            alert('Bienvenido');
-            location.assign('home.php');
-            </script>";
 
-            $_SESSION[‘session_username’]=$usuario;
-
-
-          }else{
-            echo"<script language='JavaScript'> 
-            alert('El nombre de usuario o la contraseña son erroneos');
-            location.assign('index.php');
-            </script>";
-          }
-        }
-        else{*/
-          
       ?>
       <div class="modal-dialog text-center">
         <div class="col-sm-12 paddinglogin main-section ">
@@ -55,16 +29,7 @@
             </div>
             <div class="container-fluid ">
               <p> Bienvenido, por favor ingrese sus datos</p>
-              <!--<form action="<?//=$_SERVER['PHP_SELF']?>" method="post" class="col-12">
-                <div class="form-group">
-                  <input type="text" placeholder="Usuario" class="form-control" name="usuario" required></input>
-                </div>
 
-                <div class="form-group">
-                  <input type="password" placeholder="Contraseña" class="form-control" name="password" required></input>
-                </div>
-                <button name="enviar" style="margin-top:33px" class="btn buttonColor" type="submit"><i class="fa-solid fa-right-to-bracket"></i>   Iniciar sesión</button>
-              </form>-->
 
               <form action="services/login.php" method="post" class="col-12">
                 <div class="form-group">

@@ -56,12 +56,44 @@
                         console.log(data);
 
                         let html='';
+
+                        
                         for(var i=0; i<data.datos.length;i++){
+
+                            let eltipo = data.datos[i].tipoProducto;
+                            let textoTipoProducto = '';
+                            switch (eltipo) {
+                                case '1':
+                                    textoTipoProducto = 'Impresoras';
+                                    break;
+                                case '2':
+                                    textoTipoProducto = 'Computadoras';
+                                    break;
+                                case '3':
+                                    textoTipoProducto = 'Tabletas';
+                                    break;
+                                case '4':
+                                    textoTipoProducto = 'Escaneres';
+                                    break;
+                                case '5':
+                                    textoTipoProducto = 'Etiquetas';
+                                    break;
+                                case '6':
+                                    textoTipoProducto = 'Software';
+                                    break;
+                                case '7':
+                                    textoTipoProducto = 'Cintas';
+                                    break;
+                                default:
+                                    textoTipoProducto = 'Tipo desconocido';         
+                            }
+
                             html+='<div class="col-sm-3 cardProducto" >'+
                                     '<h5 >'+data.datos[i].nomProducto+'</h5>'+
                                     '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
                                     '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
                                     '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
+                                    '<div class=" colorPrecio typepro"><p>'+textoTipoProducto+' </p></div>'+
                                     '<div class="btn-group" ">'+
                                         '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
                                         '<button type="button" onclick="iniciar_compra()" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+

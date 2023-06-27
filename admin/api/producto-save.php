@@ -5,6 +5,8 @@ $response =new stdClass();
 
 $codigo=$_POST['codigo'];
 $nombre=$_POST['name'];
+$tipoprod=$_POST['tipoprod'];
+
 $descripcion=$_POST['description'];
 $precio=$_POST['price'];
 $estado=$_POST['estado'];
@@ -21,8 +23,8 @@ if($nombre==""){
     }else{
         if(isset($_FILES['imagen'])){
             $nombre_imagen = date("YmdHis").".webp";  
-            $sql="INSERT INTO producto (nomProducto,desProducto,preProducto,estado,imgProducto)
-            VALUES ('$nombre','$descripcion',$precio,$estado,'$nombre_imagen')";
+            $sql="INSERT INTO producto (nomProducto,desProducto,preProducto,estado,imgProducto,tipoProducto)
+            VALUES ('$nombre','$descripcion',$precio,$estado,'$nombre_imagen','$tipoprod')";
 
 
             $result=mysqli_query($conexion,$sql);

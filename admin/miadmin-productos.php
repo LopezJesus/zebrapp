@@ -78,6 +78,7 @@
                                     <tr>
                                     <th scope="col">Producto</th>
                                     <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo de producto</th>
                                     <th scope="col">Descripcion</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Acciones</th>
@@ -88,12 +89,42 @@
                                         $sql="SELECT * FROM producto";
                                         $resultado=mysqli_query($conexion,$sql);
                                         while($row=mysqli_fetch_array($resultado)){
+                                        $tipoProducto = $row['tipoProducto'];
+                                        $textoTipoProducto = '';
+                                        switch ($tipoProducto) {
+                                            case 1:
+                                                $textoTipoProducto = 'Impresoras';
+                                                break;
+                                            case 2:
+                                                $textoTipoProducto = 'Computadoras';
+                                                break;
+                                            case 3:
+                                                $textoTipoProducto = 'Tabletas';
+                                                break;
+                                            case 4:
+                                                $textoTipoProducto = 'Escaneres';
+                                                break;
+                                            case 5:
+                                                $textoTipoProducto = 'Etiquetas';
+                                                break;
+                                            case 6:
+                                                $textoTipoProducto = 'Software';
+                                                break;
+                                            case 7:
+                                                $textoTipoProducto = 'Cintas';
+                                                break;
+                                            default:
+                                                $textoTipoProducto = 'Tipo desconocido';
+                                                
+                                        }
                                             echo 
                                             '<tr>
                                             <th scope="row">'.$row['idProducto'].'</th>
                                                 <td>'.$row['nomProducto'].'</td>
+                                                <td>'.$textoTipoProducto.'</td>
                                                 <td>'.$row['desProducto'].'</td>
                                                 <td>'.$row['preProducto'].'</td>
+                                                
                                                 <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
                                         }
@@ -120,6 +151,19 @@
                                         <input type="text" class="form-control" id="codigo" style="display:none;"></input>
                                             <div class="form-group set" style="background-color:white">
                                                 <input type="text" placeholder="Nombre del producto" class="form-control" id="name"></input>
+                                            </div>
+                                            <div class="form-group set">
+                                            <select id="tipoprod" class="custom-select colorselect">
+                                                <option selected>Tipo de producto</option>
+                                                <option value="1">Impresoras </option>
+                                                <option value="2">Computadoras </option>
+                                                <option value="3">Tabletas </option>
+                                                <option value="4">Escaneres </option>
+                                                <option value="5">Etiquetas </option>
+                                                <option value="6">Software </option>
+                                                <option value="7">Cintas </option>
+
+                                                </select>
                                             </div>
                                             <div class="form-group set ">
                                                 <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
@@ -155,6 +199,7 @@
                 let fd=new FormData();
                 fd.append('codigo',document.getElementById('codigo').value);
                 fd.append('name',document.getElementById('name').value);
+                fd.append('tipoprod',document.getElementById('tipoprod').value);
                 fd.append('description',document.getElementById('description').value);
                 fd.append('price',document.getElementById('price').value);
                 fd.append('estado',document.getElementById('estado').value);

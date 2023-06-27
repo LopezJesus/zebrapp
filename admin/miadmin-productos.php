@@ -125,34 +125,34 @@
                                                 <td>'.$row['desProducto'].'</td>
                                                 <td>'.$row['preProducto'].'</td>
                                                 
-                                                <td> <button onclick="edit('.$row['idProducto'].')" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                                <td> <button type="button"  
+                                                data-nomb ="'.$row['nomProducto'].'" data-id="'.$row['idProducto'].'" 
+                                                data-id="'.$row['idProducto'].'" data-tipo="'.$row['tipoProducto'].'" 
+                                                data-des="'.$row['desProducto'].'" data-precio="'.$row['preProducto'].'"
+                                                data-estado="'.$row['estado'].'" 
+                                                data-toggle="modal" data-target="#editmodal" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
                                         }
                                     ?>
                             
-              
+             
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Producto nuevo</button>
                               <!-- The Modal -->
-                                <div class="modal fade" id="myModal">
-                                    <div class="modal-dialog">
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog">
                                     <div class="modal-content">
-                                    
-                                        <!-- Modal Header -->
                                         <div class="modal-header">
-                                        <h4 class="modal-title">Añadir producto</h4>
+                                            <h4 class="modal-title">Añadir producto</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <!-- Modal body -->
-                                        <div class="modal-body">
-
+                                        </div> 
+                                    <div class="modal-body">
                                         <input type="text" class="form-control" id="codigo" style="display:none;"></input>
-                                            <div class="form-group set" style="background-color:white">
-                                                <input type="text" placeholder="Nombre del producto" class="form-control" id="name"></input>
-                                            </div>
-                                            <div class="form-group set">
+                                        <div class="form-group set" style="background-color:white">
+                                            <input type="text" placeholder="Nombre del producto" class="form-control" id="name"></input>
+                                        </div>
+                                        <div class="form-group set">
                                             <select id="tipoprod" class="custom-select colorselect">
                                                 <option selected>Tipo de producto</option>
                                                 <option value="1">Impresoras </option>
@@ -162,33 +162,78 @@
                                                 <option value="5">Etiquetas </option>
                                                 <option value="6">Software </option>
                                                 <option value="7">Cintas </option>
-
-                                                </select>
-                                            </div>
-                                            <div class="form-group set ">
-                                                <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
-                                            </div>
-                                            <div class="form-group set ">
-                                                <input type="text" placeholder="Precio" class="form-control" id="price"></input>
-                                            </div>
-                                            <div class="form-group set">
+                                            </select>
+                                        </div>
+                                        <div class="form-group set ">
+                                            <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
+                                        </div>
+                                        <div class="form-group set ">
+                                            <input type="text" placeholder="Precio" class="form-control" id="price"></input>
+                                        </div>
+                                        <div class="form-group set">
                                             <select id="estado" class="custom-select colorselect">
                                                 <option selected>Selecciona un estado</option>
                                                 <option value="1">Activo</option>
                                                 <option value="0">Inactivo</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group ">
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
                                             <div class="form-group">
                                                 <input name="imagen" type="file" class="form-control-file" id="imagen">
                                             </div>
-
                                             <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_producto()">Insertar producto</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                    
+                        </div>
+                        <!--Modal para editar-->
+                        <div class="modal fade" id="editmodal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Editar producto</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div> 
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control" id="idProducto" style="display:none;"></input>
+                                        <div class="form-group set" style="background-color:white">
+                                            <input type="text" placeholder="Nombre del producto" class="form-control" id="nombProducto"></input>
+                                        </div>
+                                        <div class="form-group set">
+                                            <select id="tipoprod" class="custom-select colorselect">
+                                                <option selected>Tipo de producto</option>
+                                                <option value="1">Impresoras </option>
+                                                <option value="2">Computadoras </option>
+                                                <option value="3">Tabletas </option>
+                                                <option value="4">Escaneres </option>
+                                                <option value="5">Etiquetas </option>
+                                                <option value="6">Software </option>
+                                                <option value="7">Cintas </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group set ">
+                                            <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
+                                        </div>
+                                        <div class="form-group set ">
+                                            <input type="text" placeholder="Precio" class="form-control" id="price"></input>
+                                        </div>
+                                        <div class="form-group set">
+                                            <select id="estado" class="custom-select colorselect">
+                                                <option selected>Selecciona un estado</option>
+                                                <option value="1">Activo</option>
+                                                <option value="0">Inactivo</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="editarProducto()">Editar producto</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -223,6 +268,35 @@
 
             }
 
+            function editarProducto(){
+                
+                let fd=new FormData();
+                fd.append('idProducto',document.getElementById('idProducto').value);
+                fd.append('nombProducto',document.getElementById('nombProducto').value);
+                fd.append('tipoprod',document.getElementById('tipoprod').value);
+                fd.append('description',document.getElementById('description').value);
+                fd.append('price',document.getElementById('price').value);
+                fd.append('estado',document.getElementById('estado').value);
+                let request=new XMLHttpRequest();
+                request.open('POST','api/edit-product.php',true);
+                request.onload=function(){
+                    if(request.readyState==4 && request.status==200){
+                        let response=JSON.parse(request.responseText);
+                        console.log(response);
+                        if(response.state==true){
+                            alert("correcto");
+                            window.location.reload();
+
+                        }else{
+                            alert(response.detail);
+                        }
+                    }
+                }
+                request.send(fd);
+
+            }
+
+
             function DeleteProduct(idProducto){
                 $.ajax({
                     url: "api/Eliminar_producto.php",
@@ -239,6 +313,29 @@
                     }
                 });
             }
+
+            $(document).ready(function() {
+            $('#editmodal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget); // Botón que activó el modal
+                var id = button.data('id'); // Obtener el valor del atributo data-id
+                var nomb = button.data('nomb'); 
+                var tipo = button.data('tipo'); 
+                var des = button.data('des'); 
+                var precio = button.data('precio'); 
+                var estado = button.data('estado'); 
+
+
+                var modal = $(this);
+                modal.find('#idProducto').val(id);
+                modal.find('#nombProducto').val(nomb);
+                modal.find('#tipoprod').val(tipo); 
+                modal.find('#description').val(des); 
+                modal.find('#price').val(precio); 
+                modal.find('#estado').val(estado); 
+
+            });
+            });
+
         </script>
         </div>
 

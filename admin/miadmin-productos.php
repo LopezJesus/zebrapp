@@ -125,7 +125,7 @@
                                                 <td>'.$row['desProducto'].'</td>
                                                 <td>'.$row['preProducto'].'</td>
                                                 
-                                                <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                                <td> <button onclick="edit('.$row['idProducto'].')" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
                                         }
                                     ?>
@@ -212,6 +212,8 @@
                         console.log(response);
                         if(response.state==true){
                             alert("correcto");
+                            window.location.reload();
+
                         }else{
                             alert(response.detail);
                         }
@@ -221,6 +223,22 @@
 
             }
 
+            function DeleteProduct(idProducto){
+                $.ajax({
+                    url: "api/Eliminar_producto.php",
+                    method: "POST",
+                    data: { idProducto: idProducto },
+                    success: function(response) {
+
+                        alert("Producto eliminado de forma exitosa");
+                        window.location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                    // Manejar errores en la petición AJAX
+                    console.error(error);
+                    }
+                });
+            }
         </script>
         </div>
 

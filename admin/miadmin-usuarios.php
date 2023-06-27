@@ -128,7 +128,7 @@
                                                 <input type="text" placeholder="Nombre de usuario" class="form-control" id="name"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="namec"></input>
+                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="namecom"></input>
                                             </div>
                                             <div class="form-group set ">
                                                 <input type="text" placeholder="Apellidos del usuario" class="form-control" id="apellido"></input>
@@ -142,8 +142,8 @@
                                             <div class="form-group set">
                                             <select id="tipo" class="custom-select colorselect">
                                                 <option selected>Selecciona un tipo de usuario</option>
-                                                <option value="1">Normal</option>
-                                                <option value="0">Admin</option>
+                                                <option value="Normal">Normal</option>
+                                                <option value="Admin">Admin</option>
                                                 </select>
                                             </div>
 
@@ -163,7 +163,7 @@
                 let fd=new FormData();
                 fd.append('codigo',document.getElementById('codigo').value);
                 fd.append('name',document.getElementById('name').value);
-                fd.append('namec',document.getElementById('namec').value);
+                fd.append('namecom',document.getElementById('namecom').value);
                 fd.append('apellido',document.getElementById('apellido').value);
                 fd.append('email',document.getElementById('email').value);
                 fd.append('temppaswrd',document.getElementById('temppaswrd').value);

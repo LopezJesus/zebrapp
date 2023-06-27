@@ -96,7 +96,7 @@ if(!isset($_SESSION['idUsuarios'])){
                         let monto=0;
                         for(var i=0; i<data.datos.length;i++){
                             html+='<div class="row sepp">'+
-                                    '<div class="pedido-img col-sm-2">'+
+                                    '<div class="pedido-img col-sm-3">'+
                                         '<img src="assets/Productos/'+data.datos[i].imgProducto+'" >'+
                                     '</div>'+   
                                     '<div class="pedido-detalle col-sm-5">'+
@@ -109,17 +109,6 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<h6><b>IdUsu: </b>' +data.datos[i].idUsuario+'</h5>'+
 
                                     '</div>'+    
-                                    '<div class="col-sm-2  ">'+
-                                        '<h5>Cantidad</h5>'+
-                                        //<div class="flexor"><i class="fa-solid fa-minus item-option elementCart"></i>
-                                        '<input type="text" placeholder="" class="form-control " style="width:33%;" name="userUsuario" required></input>'+
-                                        //<i class="fa-solid fa-plus item-option elementCart"></i></div>
-                                    '</div>'+   
-                                    '<div class="col-sm-2">'+
-                                        '<h5>Acciones</h5>'+
-                                        '<i class="fa-solid fa-xmark item-option elementCart"></i>'+
-                                        '<i class="fa-solid fa-eye item-option elementCart"></i>'+
-                                    '</div>'+   
                                 '</div>';
                                 
                             monto=monto+parseFloat(data.datos[i].preProducto );

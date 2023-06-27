@@ -102,7 +102,7 @@
                                                 <td>'.$row['emailUsuario'].'</td>
                                                 <td>'.$row['telefonoUsuario'].'</td>
                                                 <td>'.$row['ciudadUsuario'].','.$row['codposUsuario'].','.$row['Dirección'].'</td>
-                                                <td> <button style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                                <td> <button onclick="edit('.$row['idUsuarios'].')" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="Deleteuser('.$row['idUsuarios'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
                                             }
                                     //<td>'.$row['tipoUsuario'].'</td>?>
@@ -128,27 +128,23 @@
                                                 <input type="text" placeholder="Nombre de usuario" class="form-control" id="name"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="description"></input>
+                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="namec"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Apellidos del usuario" class="form-control" id="price"></input>
+                                                <input type="text" placeholder="Apellidos del usuario" class="form-control" id="apellido"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Correo electronico" class="form-control" id="price"></input>
+                                                <input type="text" placeholder="Correo electronico" class="form-control" id="email"></input>
                                             </div>
                                             <div class="form-group set ">
-                                                <input type="text" placeholder="Contraseña temporal" class="form-control" id="price"></input>
+                                                <input type="text" placeholder="Contraseña temporal" class="form-control" id="temppaswrd"></input>
                                             </div>
                                             <div class="form-group set">
-                                            <select id="estado" class="custom-select colorselect">
+                                            <select id="tipo" class="custom-select colorselect">
                                                 <option selected>Selecciona un tipo de usuario</option>
                                                 <option value="1">Normal</option>
                                                 <option value="0">Admin</option>
                                                 </select>
-                                            </div>
-                                            <div class="form-group ">
-                                            <div class="form-group">
-                                                <input name="imagen" type="file" class="form-control-file" id="imagen">
                                             </div>
 
                                             <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_user()">Insertar usuario</button>
@@ -167,10 +163,11 @@
                 let fd=new FormData();
                 fd.append('codigo',document.getElementById('codigo').value);
                 fd.append('name',document.getElementById('name').value);
-                fd.append('description',document.getElementById('description').value);
-                fd.append('price',document.getElementById('price').value);
-                fd.append('estado',document.getElementById('estado').value);
-                fd.append('imagen',document.getElementById('imagen').files[0]);
+                fd.append('namec',document.getElementById('namec').value);
+                fd.append('apellido',document.getElementById('apellido').value);
+                fd.append('email',document.getElementById('email').value);
+                fd.append('temppaswrd',document.getElementById('temppaswrd').value);
+                fd.append('tipo',document.getElementById('tipo').value);
                 let request=new XMLHttpRequest();
                 request.open('POST','api/user-save.php',true);
                 request.onload=function(){
@@ -178,13 +175,34 @@
                         let response=JSON.parse(request.responseText);
                         console.log(response);
                         if(response.state==true){
-                            alert("correcto");
+                            alert("Usuario agregado de forma exitosa");
+                            window.location.reload();
+
                         }else{
                             alert(response.detail);
                         }
                     }
                 }
                 request.send(fd);
+
+            }
+
+            function Deleteuser(idUsuario){
+                console.log(idUsuario);
+                $.ajax({
+                    url: "api/eliminar_usuario.php",
+                    method: "POST",
+                    data: { idUsuario: idUsuario },
+                    success: function(response) {
+
+                        alert("Usuario eliminado de forma exitosa");
+                        window.location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                    // Manejar errores en la petición AJAX
+                    console.error(error);
+                    }
+                });
 
             }
 

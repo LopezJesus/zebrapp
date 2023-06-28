@@ -196,13 +196,13 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div> 
                                     <div class="modal-body">
-                                        <input type="text" class="form-control" id="idProducto" style="display:none;"></input>
+                                        <input type="text" class="form-control" id="idProducto-e" style="display:none;"></input>
                                         <div class="form-group set" style="background-color:white">
-                                            <input type="text" placeholder="Nombre del producto" class="form-control" id="nombProducto"></input>
+                                            <input type="text" placeholder="Nombre del producto" class="form-control" id="nombProducto-e"></input>
                                         </div>
                                         <div class="form-group set">
-                                            <select id="tipoprod" class="custom-select colorselect">
-                                                <option selected>Tipo de producto</option>
+                                            <select id="tipoprod-e" class="custom-select colorselect">
+                                                <option >Tipo de producto</option>
                                                 <option value="1">Impresoras </option>
                                                 <option value="2">Computadoras </option>
                                                 <option value="3">Tabletas </option>
@@ -213,21 +213,21 @@
                                             </select>
                                         </div>
                                         <div class="form-group set ">
-                                            <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
+                                            <input type="text" placeholder="Descripción" class="form-control" id="description-e"></input>
                                         </div>
                                         <div class="form-group set ">
-                                            <input type="text" placeholder="Precio" class="form-control" id="price"></input>
+                                            <input type="text" placeholder="Precio" class="form-control" id="price-e"></input>
                                         </div>
                                         <div class="form-group set">
-                                            <select id="estado" class="custom-select colorselect">
-                                                <option selected>Selecciona un estado</option>
+                                            <select id="estado-e" class="custom-select colorselect">
+                                                <option >Selecciona un estado</option>
                                                 <option value="1">Activo</option>
                                                 <option value="0">Inactivo</option>
                                             </select>
                                         </div>
                                         <div class="form-group ">
 
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="editarProducto()">Editar producto</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updatePro()">Editar producto</button>
                                         </div>
                                     </div>
                                 </div>
@@ -268,33 +268,43 @@
 
             }
 
-            function editarProducto(){
-                
-                let fd=new FormData();
-                fd.append('idProducto',document.getElementById('idProducto').value);
-                fd.append('nombProducto',document.getElementById('nombProducto').value);
-                fd.append('tipoprod',document.getElementById('tipoprod').value);
-                fd.append('description',document.getElementById('description').value);
-                fd.append('price',document.getElementById('price').value);
-                fd.append('estado',document.getElementById('estado').value);
-                let request=new XMLHttpRequest();
-                request.open('POST','api/edit-product.php',true);
-                request.onload=function(){
-                    if(request.readyState==4 && request.status==200){
-                        let response=JSON.parse(request.responseText);
-                        console.log(response);
-                        if(response.succes==true){
-                            alert("correcto");
-                            window.location.reload();
+            function updatePro() {
+                var idProducto = document.getElementById('idProducto-e').value;
+                var nombProducto = document.getElementById('nombProducto-e').value;
+                var tipoprod = document.getElementById('tipoprod-e').value;
+                var description = document.getElementById('description-e').value;
+                var price = document.getElementById('price-e').value;
+                var estado = document.getElementById('estado-e').value;
 
-                        }else{
-                            alert(response.detail);
-                        }
+                var data = {
+                    idProducto: idProducto,
+                    nombProducto: nombProducto,
+                    tipoprod: tipoprod,
+                    description: description,
+                    price: price,
+                    estado: estado
+                };
+
+                // Realizar la solicitud PUT utilizando AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('PUT', 'api/edit-product.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // La solicitud se completó correctamente
+                        console.log(xhr.responseText);
+                        alert(xhr.responseText);
+                        location.reload(); // Recargar la página
+                    } else {
+                        // La solicitud no se completó correctamente
+                        console.error('Error en la solicitud: ' + xhr.status);
                     }
-                }
-                request.send(fd);
-
+                    }
+                };
+                xhr.send(JSON.stringify(data));
             }
+
 
 
             function DeleteProduct(idProducto){
@@ -326,12 +336,12 @@
 
 
                 var modal = $(this);
-                modal.find('#idProducto').val(id);
-                modal.find('#nombProducto').val(nomb);
-                modal.find('#tipoprod').val(tipo); 
-                modal.find('#description').val(des); 
-                modal.find('#price').val(precio); 
-                modal.find('#estado').val(estado); 
+                modal.find('#idProducto-e').val(id);
+                modal.find('#nombProducto-e').val(nomb);
+                modal.find('#tipoprod-e').val(tipo); 
+                modal.find('#description-e').val(des); 
+                modal.find('#price-e').val(precio); 
+                modal.find('#estado-e').val(estado); 
 
             });
             });

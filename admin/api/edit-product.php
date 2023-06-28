@@ -1,24 +1,26 @@
 <?php
 include_once("../../conexion.php");
 
-$response =new stdClass();
+// Obtener los datos enviados por la solicitud PUT
+$data = json_decode(file_get_contents('php://input'), true);
+$idProducto = $data['idProducto'];
 
-$idProducto=$_POST['idProducto'];
-$nombProducto=$_POST['nombProducto'];
-$tipoprod=$_POST['tipoprod'];
-$description=$_POST['description'];
-$price=$_POST['price'];
-$estado=$_POST['estado'];
-//$sql = "UPDATE producto SET nomProducto = '$nombProducto', desProducto = '$description', preProducto = '$price', tipoProducto = '$tipoprod', estado = '$estado' WHERE idProducto = '$idProducto'";
-$sql = "UPDATE producto SET nomProducto = '$nombProducto', tipoProducto = '$tipoprod', desProducto = '$description', preProducto = '$price', estado = '$estado' WHERE idProducto = '$idProducto'";
-
-$resultado = mysqli_query($conexion, $sql);
-
-if ($resultado) {
-    $response->state=false;
-} else {
-    $response->state = false;
+// Verificar la conexión
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
 }
 
-echo json_encode($response);
+// Actualizar los valores en la tabla de productos
+$sql = "UPDATE producto SET nomProducto = ?, desProducto = ?, preProducto = ?, estado = ?, tipoProducto = ? WHERE idProducto = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("ssdiii", $data['nombProducto'], $data['description'], $data['price'], $data['estado'], $data['tipoprod'], $idProducto);
+
+if ($stmt->execute()) {
+    echo "Producto actualizado correctamente";
+} else {
+    echo "Error al actualizar el producto: " . $conexion->error;
+}
+
+$stmt->close();
+$conexion->close();
 ?>

@@ -83,15 +83,14 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<h6><b>Telefono: </b>' +data.datos[i].telPedido+'</h5>'+
                                     '</div>'+    
                                     '<div class="col-sm-2  ">'+
-                                        '<h5>Cantidad</h5>'+
+                                        //'<h5>Cantidad</h5>'+
                                         //<div class="flexor"><i class="fa-solid fa-minus item-option elementCart"></i>
-                                        '<input type="text" placeholder="" class="form-control " style="width:33%;" name="userUsuario" required></input>'+
+                                        //'<input type="text" placeholder="" class="form-control " style="width:33%;" name="userUsuario" required></input>'+
                                         //<i class="fa-solid fa-plus item-option elementCart"></i></div>
                                     '</div>'+   
                                     '<div class="col-sm-2">'+
                                         '<h5>Acciones</h5>'+
-                                        '<i class="fa-solid fa-xmark item-option elementCart"></i>'+
-                                        '<i class="fa-solid fa-eye item-option elementCart"></i>'+
+                                        '<button class="btn" onclick="delete_producto('+data.datos[i].idPedido+')"><i class="fa-solid fa-xmark item-option elementCart"></i> </button>'+
                                     '</div>'+   
                                 '</div>';
 
@@ -129,6 +128,30 @@ if(!isset($_SESSION['idUsuarios'])){
                     }
                 });
                 }
+
+            }
+
+            function delete_producto(idPedido){
+                $.ajax({
+                    url:'services/pedido/delete_pedido.php',
+                    type:'POST',
+                    data:{
+                        idPedido:idPedido,
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.state){
+                            alert("Producto eliminado del carrito");
+                            window.location.reload();
+                        }else
+                        {
+                            alert(data.detail)  ;
+                        }
+                    },
+                    error:function(err){
+                        console.error(err);
+                    }
+                });
 
             }
                

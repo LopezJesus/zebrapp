@@ -18,6 +18,7 @@ while($row=mysqli_fetch_array($result)){
     $obj->desProducto=$row['desProducto'];
     $obj->preProducto=number_format($row['preProducto'], 2, '.', ',');
     $obj->imgProducto=$row['imgProducto'];
+    $obj->featured=$row['featured'];
 
     $datos[$i]=$obj;
     $i++;

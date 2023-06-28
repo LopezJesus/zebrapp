@@ -17,7 +17,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="black">
       <?php include ("conexion.php"); 
       $sql="select * from usuariosl";
       $resultado=mysqli_query($conexion,$sql);
@@ -38,17 +38,17 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets\BannerTest2.jpg" alt="First slide">
+                    <img class="d-block w-100" style="max-height:60vh;"src="assets\BannerTest2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <!--<h5>My Caption Title (1st Image)</h5>
                         <p>The whole caption will only show up if the screen is at least medium size.</p>-->
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets\BannerTest.jpg" alt="Second slide">
+                    <img class="d-block w-100" style="max-height:60vh;" src="assets\BannerTest.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets\Banner3.png" alt="Third slide">
+                    <img class="d-block w-100" style="max-height:60vh;"src="assets\Banner3.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -61,22 +61,22 @@
             </a>
           </div>
 
-          <div class="container  ">
-            <div class="row bg-white text-center">
-              <div class="col-sm-4  "> <h3>Impresoras   </h3>      
+          <div class="container  black ">
+            <div class="row text-center">
+              <div class="col-sm-4 cool"> <h3>Impresoras   </h3>      
                 <img class="d-block w-100" src="assets\impresoraIndex.png">
                 <div><button class="btn buttonColorin"><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=1">Ver detalles</a> </button> </div>
 
               </div>
               
-              <div class="col-sm-4"> <h3>Computadoras </h3>                
+              <div class="col-sm-4 cool"> <h3>Computadoras </h3>                
 
                 <img class="d-block w-100" src="assets\computadoras.jpg">
                 <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=2">Ver detalles</a></button> </div>
 
               </div>
               
-              <div class="col-sm-4 "> <h3>Tabletas </h3>                
+              <div class="col-sm-4 cool"> <h3>Tabletas </h3>                
 
                 <img class="d-block w-100" src="assets\tabletas.jpg" >
                 <div><button class="btn buttonColorin "><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=3">Ver detalles</a></button> </div>
@@ -85,41 +85,44 @@
             </div>
 
             <div class="row text-center">
-              <div class="col-sm-3  "> <h3>Escaneres   </h3>              
+              <div class="col-sm-3 cool "> <h3>Escaneres   </h3>              
 
                 <img class="d-block w-100" src="assets\escanerIndex.jpg">
                 <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=4">Ver detalles</a></button> </div>
 
               </div>
 
-              <div class="col-sm-3"> <h3>Etiquetas </h3>                
+              <div class="col-sm-3 cool"> <h3>Etiquetas </h3>                
 
                 <img class="d-block w-100" src="assets\labelsIndex.jpg">
                 <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=5">Ver detalles</a></button> </div>
 
               </div>
              
-              <div class="col-sm-3 "> <h3>Software </h3>                
+              <div class="col-sm-3 cool "> <h3>Software </h3>                
 
                 <img class="d-block w-100" src="assets\SoftwareIndex.png" >
                 <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=6">Ver detalles</a></button> </div>
 
               </div>
-              <div class="col-sm-3  "> <h3>Cintas   </h3>              
+              <div class="col-sm-3 cool "> <h3>Cintas   </h3>              
 
                 <img class="d-block w-100" src="assets\CintasIndex.jpg">
                 <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=7">Ver detalles</a></button> </div>
 
               </div>              
-
+            
             </div>
+            </div>
+
+            <div class="container-fluid white paddington">
             <div class="text-center">
               <h4>Productos destacados</h4>
               <div class="row" id="space-list"> 
             
               </div>
             </div>
-          </div>
+</div>
           </div>
 
 
@@ -142,7 +145,8 @@
 
                         let html='';
                         for(var i=0; i<data.datos.length;i++){
-                            html+='<div class="col-sm-3 cardProducto" >'+
+                          if(data.datos[i].featured==1){
+                            html+='<div class="col-sm-3  cardProducto" >'+
                                     '<h5 >'+data.datos[i].nomProducto+'</h5>'+
                                     '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
                                     '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
@@ -153,6 +157,9 @@
                                     '</div>'+
                                 '</div>';
                             ;
+                          }
+
+
                         }
                         document.getElementById("space-list").innerHTML=html;
                     }

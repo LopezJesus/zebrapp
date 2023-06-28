@@ -127,7 +127,7 @@
                                                 
                                                 <td> <button type="button"  
                                                 data-nomb ="'.$row['nomProducto'].'" data-id="'.$row['idProducto'].'" 
-                                                data-tipo="'.$row['tipoProducto'].'" 
+                                                data-tipo="'.$row['tipoProducto'].'" data-featured="'.$row['featured'].'" 
                                                 data-des="'.$row['desProducto'].'" data-precio="'.$row['preProducto'].'"
                                                 data-estado="'.$row['estado'].'" 
                                                 data-toggle="modal" data-target="#editmodal" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
@@ -175,6 +175,13 @@
                                                 <option selected>Selecciona un estado</option>
                                                 <option value="1">Activo</option>
                                                 <option value="0">Inactivo</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group set">
+                                            <select id="featured" class="custom-select colorselect">
+                                                <option selected>¿Es un producto destacado?</option>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
                                             </select>
                                         </div>
                                         <div class="form-group ">
@@ -225,6 +232,14 @@
                                                 <option value="0">Inactivo</option>
                                             </select>
                                         </div>
+                                        <div class="form-group set">
+                                            <select id="featured-e" class="custom-select colorselect">
+                                                <option selected>¿Es un producto destacado?</option>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+
                                         <div class="form-group ">
 
                                             <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updatePro()">Editar producto</button>
@@ -248,6 +263,8 @@
                 fd.append('description',document.getElementById('description').value);
                 fd.append('price',document.getElementById('price').value);
                 fd.append('estado',document.getElementById('estado').value);
+                fd.append('featured',document.getElementById('featured').value);
+
                 fd.append('imagen',document.getElementById('imagen').files[0]);
                 let request=new XMLHttpRequest();
                 request.open('POST','api/producto-save.php',true);
@@ -275,6 +292,7 @@
                 var description = document.getElementById('description-e').value;
                 var price = document.getElementById('price-e').value;
                 var estado = document.getElementById('estado-e').value;
+                var featured = document.getElementById('featured-e').value;
 
                 var data = {
                     idProducto: idProducto,
@@ -282,7 +300,8 @@
                     tipoprod: tipoprod,
                     description: description,
                     price: price,
-                    estado: estado
+                    estado: estado,
+                    featured:featured
                 };
 
                 // Realizar la solicitud PUT utilizando AJAX
@@ -333,7 +352,7 @@
                 var des = button.data('des'); 
                 var precio = button.data('precio'); 
                 var estado = button.data('estado'); 
-
+                var featured = button.data('featured'); 
 
                 var modal = $(this);
                 modal.find('#idProducto-e').val(id);
@@ -342,6 +361,7 @@
                 modal.find('#description-e').val(des); 
                 modal.find('#price-e').val(precio); 
                 modal.find('#estado-e').val(estado); 
+                modal.find('#featured-e').val(featured); 
 
             });
             });

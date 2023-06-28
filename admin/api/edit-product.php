@@ -11,9 +11,9 @@ if ($conexion->connect_error) {
 }
 
 // Actualizar los valores en la tabla de productos
-$sql = "UPDATE producto SET nomProducto = ?, desProducto = ?, preProducto = ?, estado = ?, tipoProducto = ? WHERE idProducto = ?";
+$sql = "UPDATE producto SET nomProducto = ?, desProducto = ?, preProducto = ?, estado = ?, tipoProducto = ?, featured = ? WHERE idProducto = ?";
 $stmt = $conexion->prepare($sql);
-$stmt->bind_param("ssdiii", $data['nombProducto'], $data['description'], $data['price'], $data['estado'], $data['tipoprod'], $idProducto);
+$stmt->bind_param("ssdiiii", $data['nombProducto'], $data['description'], $data['price'], $data['estado'], $data['tipoprod'], $data['featured'],$idProducto);
 
 if ($stmt->execute()) {
     echo "Producto actualizado correctamente";

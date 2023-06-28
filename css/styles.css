@@ -196,6 +196,24 @@ element.style
 }
 
 
+.black{
+    background-color: #3766e7;
+}
+.white{
+    background-color: white;
+}
+.paddington{
+    padding-left:250px !important;
+    padding-right:250px !important;
+
+}
+.cool{
+    border: 5px #3766e7 solid !important;
+    background-color: white !important;
+    border-radius: 15px !important;
+    padding: 15px !important;
+    min-height: fit-content;
+}
 
 .Colordetail{
     background-color: #0466C8;

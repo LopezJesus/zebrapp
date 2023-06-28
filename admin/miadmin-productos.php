@@ -128,7 +128,7 @@
                                                 <td> <button type="button"  
                                                 data-nomb ="'.$row['nomProducto'].'" data-id="'.$row['idProducto'].'" 
                                                 data-tipo="'.$row['tipoProducto'].'" data-featured="'.$row['featured'].'" 
-                                                data-des="'.$row['desProducto'].'" data-precio="'.$row['preProducto'].'"
+                                                data-des="'.$row['desProducto'].'" data-desl="'.$row['desLProducto'].'" data-precio="'.$row['preProducto'].'"
                                                 data-estado="'.$row['estado'].'" 
                                                 data-toggle="modal" data-target="#editmodal" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="DeleteProduct('.$row['idProducto'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
@@ -166,6 +166,9 @@
                                         </div>
                                         <div class="form-group set ">
                                             <input type="text" placeholder="Descripción" class="form-control" id="description"></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="desLProducto" placeholder="Descripcion larga"rows="3"></textarea>
                                         </div>
                                         <div class="form-group set ">
                                             <input type="text" placeholder="Precio" class="form-control" id="price"></input>
@@ -222,6 +225,10 @@
                                         <div class="form-group set ">
                                             <input type="text" placeholder="Descripción" class="form-control" id="description-e"></input>
                                         </div>
+                                        <div class="form-group ">
+                                            <textarea class="form-control" style="color:black;"id="desLProducto-e" placeholder="Descripcion larga"rows="3"></textarea>
+                                        </div>
+
                                         <div class="form-group set ">
                                             <input type="text" placeholder="Precio" class="form-control" id="price-e"></input>
                                         </div>
@@ -261,6 +268,8 @@
                 fd.append('name',document.getElementById('name').value);
                 fd.append('tipoprod',document.getElementById('tipoprod').value);
                 fd.append('description',document.getElementById('description').value);
+                fd.append('desLProducto',document.getElementById('desLProducto').value);
+
                 fd.append('price',document.getElementById('price').value);
                 fd.append('estado',document.getElementById('estado').value);
                 fd.append('featured',document.getElementById('featured').value);
@@ -290,6 +299,8 @@
                 var nombProducto = document.getElementById('nombProducto-e').value;
                 var tipoprod = document.getElementById('tipoprod-e').value;
                 var description = document.getElementById('description-e').value;
+                var desLProducto = document.getElementById('desLProducto-e').value;
+
                 var price = document.getElementById('price-e').value;
                 var estado = document.getElementById('estado-e').value;
                 var featured = document.getElementById('featured-e').value;
@@ -299,6 +310,7 @@
                     nombProducto: nombProducto,
                     tipoprod: tipoprod,
                     description: description,
+                    desLProducto:desLProducto,
                     price: price,
                     estado: estado,
                     featured:featured
@@ -350,6 +362,8 @@
                 var nomb = button.data('nomb'); 
                 var tipo = button.data('tipo'); 
                 var des = button.data('des'); 
+                var desL = button.data('desl'); 
+
                 var precio = button.data('precio'); 
                 var estado = button.data('estado'); 
                 var featured = button.data('featured'); 
@@ -358,7 +372,9 @@
                 modal.find('#idProducto-e').val(id);
                 modal.find('#nombProducto-e').val(nomb);
                 modal.find('#tipoprod-e').val(tipo); 
-                modal.find('#description-e').val(des); 
+                modal.find('#description-e').val(des);
+                modal.find('#desLProducto-e').val(desL); 
+
                 modal.find('#price-e').val(precio); 
                 modal.find('#estado-e').val(estado); 
                 modal.find('#featured-e').val(featured); 

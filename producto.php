@@ -40,6 +40,8 @@
                     <h4> Descripción del producto</h4>
                     <p id="desprod">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                     <button class="btn buttonColor" onclick="iniciar_compra()">Comprar ahora</button>
+                    <h4> Descripción larga del producto</h4>
+                    <p id="desprodL">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 
                 </div>
 
@@ -116,7 +118,7 @@
                                 document.getElementById("tipoprod").innerHTML=textoTipoProducto;
                                 document.getElementById("precioprod").innerHTML=data.datos[i].preProducto;
                                 document.getElementById("desprod").innerHTML=data.datos[i].desProducto;
-                                document.getElementById("desprod").innerHTML=data.datos[i].desProducto;
+                                document.getElementById("desprodL").innerHTML=data.datos[i].desLProducto;
 
                             }
                             html+='<div class="col-sm-3 cardProducto" >'+

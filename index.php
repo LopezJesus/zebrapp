@@ -65,50 +65,50 @@
             <div class="row bg-white text-center">
               <div class="col-sm-4  "> <h3>Impresoras   </h3>      
                 <img class="d-block w-100" src="assets\impresoraIndex.png">
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin"><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=1">Ver detalles</a> </button> </div>
 
               </div>
               
               <div class="col-sm-4"> <h3>Computadoras </h3>                
 
                 <img class="d-block w-100" src="assets\computadoras.jpg">
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=2">Ver detalles</a></button> </div>
 
               </div>
               
               <div class="col-sm-4 "> <h3>Tabletas </h3>                
 
                 <img class="d-block w-100" src="assets\tabletas.jpg" >
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin "><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=3">Ver detalles</a></button> </div>
 
               </div>
             </div>
 
-            <div class="row">
+            <div class="row text-center">
               <div class="col-sm-3  "> <h3>Escaneres   </h3>              
 
                 <img class="d-block w-100" src="assets\escanerIndex.jpg">
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=4">Ver detalles</a></button> </div>
 
               </div>
 
               <div class="col-sm-3"> <h3>Etiquetas </h3>                
 
                 <img class="d-block w-100" src="assets\labelsIndex.jpg">
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=5">Ver detalles</a></button> </div>
 
               </div>
              
               <div class="col-sm-3 "> <h3>Software </h3>                
 
                 <img class="d-block w-100" src="assets\SoftwareIndex.png" >
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=6">Ver detalles</a></button> </div>
 
               </div>
               <div class="col-sm-3  "> <h3>Cintas   </h3>              
 
                 <img class="d-block w-100" src="assets\CintasIndex.jpg">
-                <div><button class="btn buttonColorin ">Ver detalles</button> </div>
+                <div><button class="btn buttonColorin " ><a style="color:white;text-decoration: none;" href="tipoProducto.php?p=7">Ver detalles</a></button> </div>
 
               </div>              
 
@@ -122,15 +122,7 @@
           </div>
           </div>
 
-            <?php
-              /*while($filas=mysqli_fetch_assoc($resultado)){
 
-              
-            ?>
-            <p> ID de usuario: <?php echo $filas['idUsuarios'] ?></p>
-            <p> Nombre de usuario: <?php echo $filas['NombreUsuario'] ?>  </p>
-            <p> Contraseña: <?php echo $filas['passwordUsuario'] ?>  </p>
-            <?php }*/ ?>
           </div>
         <footer>  
 

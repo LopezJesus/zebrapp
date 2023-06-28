@@ -34,7 +34,8 @@
                 </div>
                 <div class="col-sm-6 part2 text-justify">
                     <h2 id="nameprod">Nombre</h2>
-                    <h2 id="precioprod">precio</h2>
+                    <div class="colorPrecio"><h2 id="precioprod">precio</h2></div>
+                    
                     <h3 id="tipoprod">Tipo de producto</h3>
 
                     <h4> Descripción del producto</h4>
@@ -116,7 +117,11 @@
                                 document.getElementById("imgprod").src="assets/productos/"+data.datos[i].imgProducto;
                                 document.getElementById("nameprod").innerHTML=data.datos[i].nomProducto;
                                 document.getElementById("tipoprod").innerHTML=textoTipoProducto;
-                                document.getElementById("precioprod").innerHTML=data.datos[i].preProducto;
+                                var precio = data.datos[i].preProducto;
+                                var precioFormateado = precio.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+                                document.getElementById("precioprod").innerHTML = precioFormateado;
+
+                                //document.getElementById("precioprod").innerHTML=data.datos[i].preProducto;
                                 document.getElementById("desprod").innerHTML=data.datos[i].desProducto;
                                 document.getElementById("desprodL").innerHTML=data.datos[i].desLProducto;
 

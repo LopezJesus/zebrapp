@@ -197,7 +197,7 @@ element.style
 
 
 .black{
-    background-color: #3766e7;
+    background-color: #0466C8;
 }
 .white{
     background-color: white;
@@ -208,7 +208,7 @@ element.style
 
 }
 .cool{
-    border: 5px #3766e7 solid !important;
+    border: 5px #0466C8 solid !important;
     background-color: white !important;
     border-radius: 15px !important;
     padding: 15px !important;

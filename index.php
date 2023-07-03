@@ -40,8 +40,6 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" style="max-height:60vh;"src="assets\BannerTest2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <!--<h5>My Caption Title (1st Image)</h5>
-                        <p>The whole caption will only show up if the screen is at least medium size.</p>-->
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -115,10 +113,12 @@
             </div>
             </div>
 
-            <div class="container-fluid white paddington">
-            <div class="text-center">
-              <h4>Productos destacados</h4>
-              <div class="row" id="space-list"> 
+            <div class="container-fluid white  ">
+            <div class="text-center cooltext" style="padding-top:40px;">
+              <h3>Productos destacados</h3>
+              <hr class="lineazul" style="width:50% !important; ">
+
+              <div class="row d-flex justify-content-center " style="margin-left:100px;margin-right:100px;" id="space-list"> 
             
               </div>
             </div>
@@ -155,6 +155,7 @@
                                         '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
                                         '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
                                     '</div>'+
+                                '</div>'+
                                 '</div>';
                             ;
                           }

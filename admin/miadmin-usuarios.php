@@ -102,27 +102,28 @@
                                                 <td>'.$row['emailUsuario'].'</td>
                                                 <td>'.$row['telefonoUsuario'].'</td>
                                                 <td>'.$row['ciudadUsuario'].','.$row['codposUsuario'].','.$row['Dirección'].'</td>
-                                                <td> <button onclick="edit('.$row['idUsuarios'].')" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="Deleteuser('.$row['idUsuarios'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
+                                                <td> <button  data-nomb ="'.$row['userUsuario'].'" data-id="'.$row['idUsuarios'].'" 
+                                                data-nomcom="'.$row['NombreUsuario'].'" data-apellido="'.$row['ApellidoUsuario'].'" 
+                                                data-email="'.$row['emailUsuario'].'"  
+                                                data-tipousu="'.$row['tipoUsuario'].'" data-pswrd="'.$row['passwordUsuario'].'" 
+                                                data-toggle="modal" data-target="#editmodal" style="cursor:pointer;"><i class="fa-solid fa-pen"></i></button>  <button onclick="Deleteuser('.$row['idUsuarios'].')"style="cursor:pointer;"><i class="fa-solid fa-trash"></i> </button> </td>
                                             </tr>';
                                             }
-                                    //<td>'.$row['tipoUsuario'].'</td>?>
+                                        //<td>'.$row['tipoUsuario'].'</td>?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Crear nuevo usuario</button>
                               <!-- The Modal -->
-                                <div class="modal fade" id="myModal">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content"> 
                                         <!-- Modal Header -->
                                         <div class="modal-header">
-                                        <h4 class="modal-title">Nuevo usuario</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Nuevo usuario</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
-                                        
                                         <!-- Modal body -->
                                         <div class="modal-body">
-
                                             <input type="text" class="form-control" id="codigo" style="display:none;"></input>
                                             <div class="form-group set" style="background-color:white">
                                                 <input type="text" placeholder="Nombre de usuario" class="form-control" id="name"></input>
@@ -140,14 +141,52 @@
                                                 <input type="text" placeholder="Contraseña temporal" class="form-control" id="temppaswrd"></input>
                                             </div>
                                             <div class="form-group set">
-                                            <select id="tipo" class="custom-select colorselect">
-                                                <option selected>Selecciona un tipo de usuario</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="Admin">Admin</option>
+                                                <select id="tipo" class="custom-select colorselect">
+                                                    <option selected>Selecciona un tipo de usuario</option>
+                                                    <option value="Normal">Normal</option>
+                                                    <option value="admin">Admin</option>
                                                 </select>
                                             </div>
-
                                             <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save_user()">Insertar usuario</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="editmodal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content"> 
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Nuevo usuario</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <input type="text" class="form-control" id="codigo-e" style="display:none;"></input>
+                                            <div class="form-group set" style="background-color:white">
+                                                <input type="text" placeholder="Nombre de usuario" class="form-control" id="name-e"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Nombre completo del usuario" class="form-control" id="namecom-e"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Apellidos del usuario" class="form-control" id="apellido-e"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Correo electronico" class="form-control" id="email-e"></input>
+                                            </div>
+                                            <div class="form-group set ">
+                                                <input type="text" placeholder="Contraseña temporal" class="form-control" id="temppaswrd-e"></input>
+                                            </div>
+                                            <div class="form-group set">
+                                                <select id="tipo-e" class="custom-select colorselect">
+                                                    <option selected>Selecciona un tipo de usuario</option>
+                                                    <option value="Normal">Normal</option>
+                                                    <option value="admin">Admin</option>
+                                                </select>
+                                            </div>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="edit_user()">Insertar usuario</button>
                                         </div>
                                     </div>
                                 </div>
@@ -187,6 +226,50 @@
 
             }
 
+            function edit_user() {
+                var idUsuario = document.getElementById('codigo-e').value;
+                var usuUsuario = document.getElementById('name-e').value;
+                var nombreUsuario = document.getElementById('namecom-e').value;
+                var apellidoUsuario = document.getElementById('apellido-e').value;
+                var emailUsuario = document.getElementById('email-e').value;
+
+                var tipoUsuario = document.getElementById('tipo-e').value;
+                var tempPswrd = document.getElementById('temppaswrd-e').value;
+
+
+
+                var data = {
+                    idUsuario: idUsuario,
+                    usuUsuario: usuUsuario,
+                    nombreUsuario: nombreUsuario,
+                    apellidoUsuario: apellidoUsuario,
+                    emailUsuario:emailUsuario,
+                    tipoUsuario: tipoUsuario,
+                    tempPswrd: tempPswrd
+                };
+
+                // Realizar la solicitud PUT utilizando AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('PUT', 'api/edit-users.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // La solicitud se completó correctamente
+                        console.log(xhr.responseText);
+                        alert(xhr.responseText);
+                        location.reload(); // Recargar la página
+                    } else {
+                        // La solicitud no se completó correctamente
+                        console.error('Error en la solicitud: ' + xhr.status);
+                    }
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+
+
+
             function Deleteuser(idUsuario){
                 console.log(idUsuario);
                 $.ajax({
@@ -205,6 +288,31 @@
                 });
 
             }
+
+            $(document).ready(function() {
+            $('#editmodal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget); // Botón que activó el modal
+                var id = button.data('id'); // Obtener el valor del atributo data-id
+                var nomb = button.data('nomb'); 
+                var nomcom = button.data('nomcom'); 
+                var apellido = button.data('apellido'); 
+                var email = button.data('email'); 
+                var tipousu = button.data('tipousu'); 
+                var pswrd = button.data('pswrd'); 
+
+                var modal = $(this);
+                modal.find('#codigo-e').val(id);
+                modal.find('#name-e').val(nomb);
+                modal.find('#namecom-e').val(nomcom); 
+                modal.find('#apellido-e').val(apellido);
+                modal.find('#email-e').val(email); 
+
+                modal.find('#tipo-e').val(tipousu); 
+                modal.find('#temppaswrd-e').val(pswrd); 
+
+            });
+            });
+
 
         </script>
                     </div>

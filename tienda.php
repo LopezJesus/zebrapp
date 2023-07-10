@@ -47,6 +47,7 @@
         </footer>
 
         <script type="text/javascript">
+
             (function(){
                 $.ajax({
                     url:'services/producto/todosproductos.php',
@@ -56,6 +57,7 @@
                         console.log(data);
 
                         let html='';
+                        data.datos.sort(function() { return Math.random() - 0.5 });
 
                         
                         for(var i=0; i<data.datos.length;i++){

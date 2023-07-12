@@ -210,6 +210,12 @@ element.style
     padding-right:250px !important;
 
 }
+.details p{
+    font-size:14px !important;
+}
+
+
+
 .cool{
     border: 5px #0466C8 solid !important;
     background-color: white !important;

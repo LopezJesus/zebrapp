@@ -9,17 +9,7 @@
                 <p>Tijuana, B.C, México</p>   
             </div>
         </div>
-
-        <div class="col-sm-3">
-            <h5 style="color:white">Catalogo </h5>
-            <div style="color:white; margin-left:25px" ;>
-                <p>Equipos</p>
-                <p>Escaneres</p>
-                <p>Impresoras</p>
-                <p>Cintas</p>
-            </div>
-        </div>
-
+        <?php if(isset($_SESSION['userUsuario'])){ ?>
         <div class="col-sm-3" >
             <h5 style="color:white">Usuario </h5> 
             <div style="color:white; margin-left:25px" ;>
@@ -30,6 +20,24 @@
                 <p>Facturas</p>
             </div>
         </div>
+        <?php
+        }
+        ?>
+        <div class="col-sm-3">
+            <h5 style="color:white">Catalogo </h5>
+            <div style="color:white; margin-left:25px" ;>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=1"><p>Impresoras</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=2"><p>Computadoras</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=3"><p>Tabletas</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=4"><p>Escaneres</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=5"><p>Etiquetas</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=6"><p>Software</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/tipoProducto.php?p=7"><p>Cintas</p></a>
+
+            </div>
+        </div>
+
+
     </div>
     <div class="row" style="background-color:#141414; padding-top:18px; margin-bottom:-18px; ">
         <div class="col-sm-6 text-right ">

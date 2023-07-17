@@ -44,10 +44,10 @@ if(!isset($_SESSION['idUsuarios'])){
                                 <a class="nav-link" href="micuenta.php"><i class="fa-solid fa-desktop"></i>  Escritorio</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="pedido.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
+                                <a class="nav-link " href="pedido.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="micuenta_historial.php"><i class="fa-solid fa-book"></i>  Historial de pedidos</a>
+                                <a class="nav-link active" href="micuenta_historial.php"><i class="fa-solid fa-book"></i>  Historial de pedidos</a>
                             </li>
                             <li class="nav-item  ">
                                 <a class="nav-link " href="micuenta_ajustes.php"> <i class="fa-solid fa-gear"></i>  Ajustes</a>
@@ -58,18 +58,8 @@ if(!isset($_SESSION['idUsuarios'])){
                         </ul>
                     </div>
                     <div class="col-sm-8 text-left">
-                    <div class="container-fluid-sm" style="background-color:white" id="space-list"></div>
-                    <div class="row">
-                    <div class="col-sm-6 text-left">
-                    <h3>Datos de pago</h3>
-                        <h4><b>Banco:</b> BBVA</h4>
-                        <h4><b>No de Cuenta:</b> xxx-xxx-125</h4>
-                        <h4><b>Representante:</b> Agente vendedor #1</h4>
-                        <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
-
-                    </div>
-                    <div class="col-sm-6 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
-                    </div>
+                        <div class="container-fluid-sm" style="background-color:white" id="space-list"></div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -85,7 +75,7 @@ if(!isset($_SESSION['idUsuarios'])){
 
             (function(){
                 $.ajax({
-                    url:'services/pedido/get_procesados.php',
+                    url:'services/pedido/get_history.php',
                     type:'POST',
                     data:{
                         userId:userId
@@ -93,7 +83,6 @@ if(!isset($_SESSION['idUsuarios'])){
                     success:function(data){
                         console.log(data);
                         let html='';
-                        let monto=0;
                         for(var i=0; i<data.datos.length;i++){
                             html+='<div class="row sepp">'+
                                     '<div class="pedido-img col-sm-3">'+
@@ -111,12 +100,10 @@ if(!isset($_SESSION['idUsuarios'])){
                                     '</div>'+    
                                 '</div>';
                                 
-                            monto=monto+parseFloat(data.datos[i].preProducto );
                             
                         }
                         document.getElementById("space-list").innerHTML=html;
 
-                        document.getElementById("montotal").innerHTML=monto;
 
                     }
                 });

@@ -38,7 +38,7 @@ if(!isset($_SESSION['idUsuarios'])){
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-4 text-center"><h3> Total: </h3> </div>
+                <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
                     <div class="col-sm-8 text-center">
                             <div class="form-group">
                                 <input type="text" placeholder="Dirección" class="form-control" id="dirusu"></input>
@@ -67,6 +67,7 @@ if(!isset($_SESSION['idUsuarios'])){
                     data:{},
                     success:function(data){
                         console.log(data);
+                        let monto=0;
 
                         let html='';
                         for(var i=0; i<data.datos.length;i++){
@@ -93,10 +94,13 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<button class="btn" onclick="delete_producto('+data.datos[i].idPedido+')"><i class="fa-solid fa-xmark item-option elementCart"></i> </button>'+
                                     '</div>'+   
                                 '</div>';
+                                monto=monto+parseFloat(data.datos[i].preProducto );
 
                             ;
                         }
                         document.getElementById("space-list").innerHTML=html;
+                        document.getElementById("montotal").innerHTML=monto;
+
                     }
                 });
             })();

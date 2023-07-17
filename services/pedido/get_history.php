@@ -22,7 +22,7 @@ $i=0;
 
 $sql="select *,ped.estado estadoped from pedidos ped 
 inner join producto pro on ped.idProducto=pro.idProducto 
-where ped.estado=2 and idUsuario=$userId";
+where ped.estado =3 and idUsuario=$userId";
 $result=mysqli_query($con,$sql);
 while($row=mysqli_fetch_array($result)){
     $obj=new stdClass();

@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="pedido.php"><i class="fa-solid fa-truck"></i>  Mis pedidos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="micuenta_facturas.php"><i class="fa-solid fa-book"></i>  Facturas</a>
+                                <a class="nav-link " href="micuenta_historial.php"><i class="fa-solid fa-book"></i>  Historial de pedidos</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="micuenta_ajustes.php"> <i class="fa-solid fa-gear"></i>  Ajustes</a>

@@ -31,7 +31,7 @@
                 <ul class="nav ">
                         <h4 style="color:white; padding-top:15px;"> Categorias</h4>
                             <li class="nav-item new">
-                                <a class="nav-link active" href="tipoProducto.php?p=1"><i class="fa-solid fa-print"></i>  Impresoras</a>
+                                <a class="nav-link " href="tipoProducto.php?p=1"><i class="fa-solid fa-print"></i>  Impresoras</a>
                             </li>
                             <li class="nav-item new">
                                 <a class="nav-link" href="tipoProducto.php?p=2"><i class="fa-solid fa-computer"></i> Computadoras</a>
@@ -125,10 +125,10 @@
                                     '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
                                     '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
                                     '<div class=" colorPrecio typepro"><p>'+textoTipoProducto+' </p></div>'+
-                                    '<div class="btn-group" ">'+
-                                        '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
-                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
-                                    '</div>'+
+                                    //'<div class="btn-group" ">'+
+                                        /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
+                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
+                                    //'</div>'+
                                 '</div>';
                             ;
                         }

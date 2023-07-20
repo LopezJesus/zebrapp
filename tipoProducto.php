@@ -30,9 +30,44 @@
 
             
         <div class="container-fluid text-center">
-            <h4 id="tiprod">Producto tipo</h4>
+            <div class="row" > 
+                <div class="col-2 sidebar" style="background-color: #141414;">
+                    <ul class="nav ">
+                        <h4 style="color:white; padding-top:15px;"> Categorias</h4>
+                        <li class="nav-item new">
+                            <a id="impresora" class="nav-link " href="tipoProducto.php?p=1"><i class="fa-solid fa-print"></i>  Impresoras</a>
+                        </li>
+                        <li class="nav-item new">
+                            <a id="computadoras" class="nav-link" href="tipoProducto.php?p=2"><i class="fa-solid fa-computer"></i> Computadoras</a>
+                        </li>
+                        <li class="nav-item new">
+                            <a id="tabletas" class="nav-link " href="tipoProducto.php?p=3"><i class="fa-solid fa-tablet"></i>  Tabletas</a>
+                        </li>
+                        <li class="nav-item new">
+                            <a id="escaneres" class="nav-link " href    ="tipoProducto.php?p=4"><i class="fa-solid fa-solid fa-qrcode"></i> Escaneres</a>
+                        </li>
+                        <li class="nav-item new">
+                            <a id="etiquetas" class="nav-link " href="tipoProducto.php?p=5"><i class="fa-solid fa-tag"></i> Etiquetas</a>
+                        </li>
+                        <li class="nav-item new">
+                            <a id="software" class="nav-link " href="tipoProducto.php?p=6"><i class="fa-solid fa-microchip"></i> Software</a>
+                        </li>                            
+                        <li class="nav-item new">
+                            <a id="cintas" class="nav-link " href="tipoProducto.php?p=7"><i class="fa-solid fa-tape"></i>  Cintas</a>
+                        </li>
+                        <h4 style="color:white; padding-top:15px;">Filtrar por precio</h4>
 
-            <div class="row" id="space-list"> 
+                    </ul>   
+
+                </div>
+                
+                <div class="col-10 row you" id="space-list">
+        
+                </div>
+                
+
+    
+            
             
             </div>
             
@@ -46,31 +81,39 @@
 
         <script type="text/javascript">
             var p='<?php echo $_GET["p"]; ?>';
-            selectTipo=document.getElementById("tiprod");
+
+            let impresora =document.getElementById("impresora");
+            let computadoras =document.getElementById("computadoras");
+            let tabletas =document.getElementById("tabletas");
+            let escaneres =document.getElementById("escaneres");
+            let etiquetas =document.getElementById("etiquetas");
+            let software =document.getElementById("software");
+            let cintas =document.getElementById("cintas");
+
             switch (p) {
                 case '1':
-                    selectTipo.innerHTML = 'Impresoras';
+                    impresora.classList.add("active");
                     break;
                 case '2':
-                    selectTipo.innerHTML = 'Computadoras';
+                    computadoras.classList.add("active");
                     break;
                 case '3':
-                    selectTipo.innerHTML = 'Tabletas';
+                    tabletas.classList.add("active");
                     break;
                 case '4':
-                    selectTipo.innerHTML = 'Escaneres';
+                    escaneres.classList.add("active");
                     break;
                 case '5':
-                    selectTipo.innerHTML = 'Etiquetas';
+                    etiquetas.classList.add("active");
                     break;
                 case '6':
-                    selectTipo.innerHTML = 'Software';
+                    software.classList.add("active");
                     break;
                 case '7':
-                    selectTipo.innerHTML = 'Cintas';
+                    cintas.classList.add("active");
                     break;
                 default:
-                selectTipo.innerHTML = 'Tipo desconocido';         
+                    break;         
             }
         </script>
 

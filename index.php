@@ -151,10 +151,10 @@
                                     '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
                                     '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
                                     '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
-                                    '<div class="btn-group" ">'+
-                                        '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
-                                        '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
-                                    '</div>'+
+                                    /*'<div class="btn-group" ">'+*/
+                                        /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
+                                        '<button type="button" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"><i class="fa-solid fa-plus"></i> Detalles</a> </button>'+
+                                    /*'</div>'+*/
                                 '</div>'+
                                 '</div>';
                             ;

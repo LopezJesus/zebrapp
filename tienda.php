@@ -52,7 +52,20 @@
                                 <a class="nav-link " href="tipoProducto.php?p=7"><i class="fa-solid fa-tape"></i>  Cintas</a>
                             </li>
                             <h4 style="color:white; padding-top:15px;">Filtrar por precio</h4>
-
+                            <div class="form-row">
+                                <div class="col">
+                                    <input id="desde" type="text" class="form-control" placeholder="Desde">
+                                </div>
+                                <div class="col">
+                                    <input id="hasta" type="text" class="form-control" placeholder="Hasta">
+                                </div>
+                                
+                            </div>
+                            <div class="form-row" style="padding-top:15px;">
+                                <div class="col">
+                                    <button type="button" onclick="FiltrarPrecio()" class="btn btn-primary "> Buscar </button>'+
+                                </div>
+                            </div>
                         </ul>   
 
                 </div>
@@ -160,8 +173,53 @@
                 })
             }
 
-        </script>
 
-        
+            function FiltrarPrecio(){
+                let desde =document.getElementById("desde");
+                let hasta =document.getElementById("hasta"); 
+                console.log(desde.value);
+                console.log(hasta.value);
+                if(desde.value=="" || hasta.value==""){
+                    console.log("ño");
+                }else{
+                    let eldesde=desde.value
+                let elhasta=hasta.value
+                    $.ajax({
+                        url:'services/producto/get_filter.php',
+                        type:'POST',
+                        data:{
+                            eldesde:eldesde,
+                            elhasta:elhasta
+                        },
+                        success:function(data){
+                            console.log(data);
+
+                            let html='';
+                            for(var i=0; i<data.datos.length;i++){
+                                html+='<div class="col-sm-3 cardProducto" >'+
+                                        '<h5 >'+data.datos[i].nomProducto+'</h5>'+
+                                        '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
+                                        '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
+                                        '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
+                                        '<div class="btn-group" ">'+
+                                            '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
+                                            '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
+                                        '</div>'+
+                                    '</div>';
+                                ;
+                            }
+                            if (html==''){
+                                document.getElementById("space-list").innerHTML="<p>No hay resultados</p>";
+
+                            }else{
+                                document.getElementById("space-list").innerHTML=html;
+
+                            }
+                        }
+                    });
+                }
+
+            }                     
+        </script>
     </body>
 </html>

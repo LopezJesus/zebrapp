@@ -32,7 +32,7 @@
         <div class="container-fluid text-center">
             <div class="row" > 
                 <div class="col-2 sidebar" style="background-color: #141414;">
-                    <ul class="nav ">
+                    <ul class="nav flex-column  text-left ">
                         <h4 style="color:white; padding-top:15px;"> Categorias</h4>
                         <li class="nav-item new">
                             <a id="impresora" class="nav-link " href="tipoProducto.php?p=1"><i class="fa-solid fa-print"></i>  Impresoras</a>
@@ -130,13 +130,13 @@
                             if(data.datos[i].tipoProducto==p){
                                 html+='<div class="col-sm-3 cardProducto" >'+
                                     '<h5 >'+data.datos[i].nomProducto+'</h5>'+
-                                    '<img src="assets/Productos/'+data.datos[i].imgProducto+'" class="img-fluid" width="200" >'+
-                                    '<div class="colorPrecio"><h4>'+data.datos[i].preProducto+'</h4></div>'+
-                                    '<div class="detaildes"><p class="">'+data.datos[i].desProducto+'</p></div>'+
-                                    '<div class="btn-group" ">'+
-                                        '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
-                                        '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
-                                    '</div>'+
+                                    '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
+                                    '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
+                                    '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
+                                    //'<div class="btn-group" ">'+
+                                        /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
+                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"> <i class="fa-solid fa-plus"></i> Detalles</a> </button>'+
+                                    //'</div>'+
                                 '</div>';
                             ;
 

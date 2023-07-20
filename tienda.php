@@ -28,27 +28,27 @@
         <div class="container-fluid text-center">
             <div class="row" > 
                 <div class="col-2 sidebar" style="background-color: #141414;">
-                <ul class="nav ">
+                <ul class="nav flex-column  text-left">
                         <h4 style="color:white; padding-top:15px;"> Categorias</h4>
-                            <li class="nav-item new">
+                            <li class="nav-item new" style="display:block !important" >
                                 <a class="nav-link " href="tipoProducto.php?p=1"><i class="fa-solid fa-print"></i>  Impresoras</a>
                             </li>
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link" href="tipoProducto.php?p=2"><i class="fa-solid fa-computer"></i> Computadoras</a>
                             </li>
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link " href="tipoProducto.php?p=3"><i class="fa-solid fa-tablet"></i>  Tabletas</a>
                             </li>
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link " href="tipoProducto.php?p=4"><i class="fa-solid fa-solid fa-qrcode"></i> Escaneres</a>
                             </li>
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link " href="tipoProducto.php?p=5"><i class="fa-solid fa-tag"></i> Etiquetas</a>
                             </li>
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link " href="tipoProducto.php?p=6"><i class="fa-solid fa-microchip"></i> Software</a>
                             </li>                            
-                            <li class="nav-item new">
+                            <li class="nav-item new"  style="display:block !important">
                                 <a class="nav-link " href="tipoProducto.php?p=7"><i class="fa-solid fa-tape"></i>  Cintas</a>
                             </li>
                             <h4 style="color:white; padding-top:15px;">Filtrar por precio</h4>
@@ -127,7 +127,7 @@
                                     '<div class=" colorPrecio typepro"><p>'+textoTipoProducto+' </p></div>'+
                                     //'<div class="btn-group" ">'+
                                         /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
-                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
+                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"><i class="fa-solid fa-plus"></i> Detalles</a> </button>'+
                                     //'</div>'+
                                 '</div>';
                             ;

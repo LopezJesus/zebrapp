@@ -55,8 +55,6 @@
                         <li class="nav-item new">
                             <a id="cintas" class="nav-link " href="tipoProducto.php?p=7"><i class="fa-solid fa-tape"></i>  Cintas</a>
                         </li>
-                        <h4 style="color:white; padding-top:15px;">Filtrar por precio</h4>
-
                     </ul>   
 
                 </div>
@@ -155,6 +153,7 @@
             function open_login(){
                 window.location.href="loginuser.php";
             }
+
         </script>
 
     </body>

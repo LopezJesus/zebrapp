@@ -27,7 +27,7 @@
             ?>
         </header>
             <div class="container fluid text-center">
-              <h4>Resultados de la busqued de <strong>"<?php echo $_GET['text'];?>"</strong></h4>
+              <h4>Resultados de la busqueda de <strong>"<?php echo $_GET['text'];?>"</strong></h4>
               <div class="row" id="space-list"> 
             
               </div>

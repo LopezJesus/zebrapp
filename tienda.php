@@ -180,7 +180,7 @@
                 console.log(desde.value);
                 console.log(hasta.value);
                 if(desde.value=="" || hasta.value==""){
-                    console.log("ño");
+                    alert("Faltan valores");
                 }else{
                     let eldesde=desde.value
                 let elhasta=hasta.value

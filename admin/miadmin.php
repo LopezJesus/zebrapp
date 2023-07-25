@@ -41,7 +41,7 @@
                                 <a class="nav-link " href="miadmin-usuarios.php"><i class="fa-solid fa-users"></i> Usuarios</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="miadmin-facturas.php"> <i class="fa-solid fa-book"></i> Facturas</a>
+                                <a class="nav-link" href="miadmin-historial.php"> <i class="fa-solid fa-book"></i> Historial de pedidos</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="miadmin-pedidos.php"> <i class="fa-solid fa-truck"></i> Pedidos</a>

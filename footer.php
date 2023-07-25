@@ -4,8 +4,8 @@
         <div class="col-sm-6" >
             <h3 class="navba"style="color:white">ZebrApp.</h3>
             <div class="infoFoot" style="color:white";>
-                <p>664-345-230</p>
-                <p>Placeholder@gmail.com</p>   
+                <p>664-123-2800</p>
+                <p>zebrapp.info@gmail.com</p>   
                 <p>Tijuana, B.C, México</p>   
             </div>
         </div>

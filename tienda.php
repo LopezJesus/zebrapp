@@ -138,10 +138,7 @@
                                     '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
                                     '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
                                     '<div class=" colorPrecio typepro"><p>'+textoTipoProducto+' </p></div>'+
-                                    //'<div class="btn-group" ">'+
-                                        /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
-                                        '<button type="button" onclick="iniciar_compra()" class="btn btn-primary btn-block"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"><i class="fa-solid fa-plus"></i> Detalles</a> </button>'+
-                                    //'</div>'+
+                                        '<a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"><button type="button"  class="btn btn-primary btn-block"><i class="fa-solid fa-plus"></i> Detalles</button></a> '+
                                 '</div>';
                             ;
                         }
@@ -151,28 +148,7 @@
             })();
                
 
-            function iniciar_compra(){
-                $.ajax({
-                    url:'services/producto/validar_compra.php',
-                    type:'POST',
-                    data:{
-                        idProducto:p
-                    },
-                    success:function(data){
-                        console.log(data); 
-                        if(data.state){
-                            alert(data.detail);
-                        }else{
-                            alert(data.detail);
-                            if(data.open_login){
-                                open_login();
-
-                            }
-                        }       
-                    }
-                })
-            }
-
+        
 
             function FiltrarPrecio(){
                 let desde =document.getElementById("desde");

@@ -19,16 +19,12 @@
       $sql="select * from usuariosl";
       $resultado=mysqli_query($conexion,$sql);
       ?>
-        <header>
-            <?php
-            require_once('../header.php');
-            ?>
-        </header>
+  
         <div style=" margin:10px;"> 
         <span class="text-center"><h3 >MODO ADMINISTRADOR</h3></span>
                 
             <div class="col-sm-4">
-                <h1 >Facturas</h1>
+                <h1 >Pedidos</h1>
                 <hr class="lineazul">
             </div>
             <div id="sidebar"class="container-fluid">
@@ -48,7 +44,7 @@
                                 <a class="nav-link active" href="miadmin-historial.php"> <i class="fa-solid fa-book"></i> Historial de pedidos</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="miadmin-pedidos.php"> <i class="fa-solid fa-truck"></i> Pedidos</a>
+                                <a class="nav-link  " href="miadmin-pedidos.php"> <i class="fa-solid fa-truck"></i> Pedidos</a>
                             </li>
 
                         </ul>
@@ -56,27 +52,49 @@
 
                     <div class="col-sm-8" style="padding-left: 25px !important;">
                     <div class="text-center">
-                            <table class="table table-bordered">
+                    <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col"># Factura</th>
-                                    <th scope="col"># de pedido</th>
-                                    <th scope="col">Fecha factura</th>
-                                    <th scope="col">Total pedido</th>
-                                    <th scope="col">Descargar factura</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Telefono</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">001</th>
-                                        <td>001</td>
-                                        <td>05/05/2023</td>
-                                        <td>$1350.00 MXN</td>
-                                        <td> <i class="fa-solid fa-circle-down"></i> </td>
-                                    </tr>
-              
+                                    <?php
+                                        $sql="SELECT ped.*,usu.*,pro.*,case when ped.estado=3 then 'Pagado' else 'Otro' end
+                                        estadotexto FROM pedidos ped
+                                        inner join usuariosl usu 
+                                        on ped.idUsuario=usu.idUsuarios
+                                        inner join producto pro 
+                                        on ped.idProducto=pro.idProducto
+                                        where ped.estado=3";
+
+                                        $resultado=mysqli_query($conexion,$sql);
+                                        while($row=mysqli_fetch_array($resultado)){
+                                            echo 
+                                            '<tr>
+                                            <th scope="row">'.$row['idPedido'].'</th>
+                                                <td>'.$row['idUsuario'].' - '.$row['userUsuario'].'</td>
+                                                <td>'.$row['idProducto'].' - '.$row['nomProducto'].'</td>
+                                                <td>'.$row['FechaPedido'].'</td>
+                                                <td>'.$row['estadotexto'].'</td>
+                                                <td>'.$row['dirPedido'].'</td>
+                                                <td>'.$row['telPedido'].'</td>
+
+ 
+                                            </tr>';
+                                        }
+                                    ?>
+               
+        
                                 </tbody>
-                            </table>
+                            </table>                       
                         </div>     
                     </div>
                 </div>
@@ -90,11 +108,4 @@
             </footer>
     </body>
     
-    <script type="text/javascript">
-    function loginadmin() {
-
-       
-}
-
-    </script>
 </html>

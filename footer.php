@@ -13,11 +13,11 @@
         <div class="col-sm-3" >
             <h5 style="color:white">Usuario </h5> 
             <div style="color:white; margin-left:25px" ;>
-                <p>Cuenta</p>
-                <p>Carrito</p>
-                <p>Checkout</p>
-                <p>Seguimiento del pedido</p>
-                <p>Facturas</p>
+                <a style="color:white;" href="http://localhost/zebrapp/micuenta.php"><p>Cuenta</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/pedido.php"><p>Pedidos</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/micuenta_historial.php"><p>Historial de pedidos</p></a>
+                <a style="color:white;" href="http://localhost/zebrapp/micuenta_ajustes.php"><p>Ajustes</p></a>
+
             </div>
         </div>
         <?php

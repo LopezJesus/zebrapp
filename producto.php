@@ -48,8 +48,8 @@
 
             </div>
             
-            <h4>Productos relacionados</h4>
-            <div class="row" id="space-list"> 
+            <h4>Productos destacados</h4>
+            <div class="row d-flex justify-content-center" style="margin-left:100px;margin-right:100px;" id="space-listin"> 
             
             </div>
             
@@ -126,20 +126,42 @@
                                 document.getElementById("desprodL").innerHTML=data.datos[i].desLProducto;
 
                             }
-                            html+='<div class="col-sm-3 cardProducto" >'+
-                                    '<h5 >'+data.datos[i].nomProducto+'</h5>'+
-                                    '<img src="assets/Productos/'+data.datos[i].imgProducto+'" class="img-fluid" width="200" >'+
-                                    '<div class="colorPrecio"><h4>'+data.datos[i].preProducto+'</h4></div>'+
-                                    '<div class="detaildes"><p class="">'+data.datos[i].desProducto+'</p></div>'+
-                                    '<div class="btn-group" ">'+
-                                        '<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+
-                                        '<button type="button" class="btn btn-primary"><a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'">Detalles</a> </button>'+
-                                    '</div>'+
-                                '</div>';
-                            ;
+                        
                         }
                         
                         document.getElementById("space-list").innerHTML=html;
+                    }
+                });
+            })();
+
+            (function(){
+                $.ajax({
+                    url:'services/producto/todosproductos.php',
+                    type:'POST',
+                    data:{},
+                    success:function(data){
+                        console.log(data);
+
+                        let html='';
+                        for(var i=0; i<data.datos.length;i++){
+                          if(data.datos[i].featured==1){
+                            html+='<div class="col-sm-3  cardProducto" >'+
+                                    '<h5 >'+data.datos[i].nomProducto+'</h5>'+
+                                    '<div class="imgProd"><img src="assets/Productos/'+data.datos[i].imgProducto+'" > </div>'+
+                                    '<div class="colorPrecio"><h4>$'+data.datos[i].preProducto+' MXN</h4></div>'+
+                                    '<div class="details"><p>'+data.datos[i].desProducto+' </p></div>'+
+                                    /*'<div class="btn-group" ">'+*/
+                                        /*'<button type="button" class="btn btn-primary " >Agregar al carrito  <i class="fa-solid fa-plus"></i></button>'+*/
+                                        '<a style="color:white;text-decoration: none;" href="producto.php?p='+data.datos[i].idProducto+'"><button type="button" class="btn btn-primary btn-block"><i class="fa-solid fa-plus"></i> Detalles </button></a>'+
+                                    /*'</div>'+*/
+                                '</div>'+
+                                '</div>';
+                            ;
+                          }
+
+
+                        }
+                        document.getElementById("space-listin").innerHTML=html;
                     }
                 });
             })();

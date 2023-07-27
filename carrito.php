@@ -23,12 +23,17 @@ if(!isset($_SESSION['idUsuarios'])){
     </head>
     <body>
       <?php include ("conexion.php"); 
-      $sql="select * from usuariosl";
+      $nombreUsuario = $_SESSION['userUsuario'];
+      $sql = "SELECT * FROM usuariosl WHERE userUsuario = '$nombreUsuario'";
       $resultado=mysqli_query($conexion,$sql);
       ?>
         <header>
             <?php
             require_once('header.php');
+            ?>
+            <?php
+              while($filas=mysqli_fetch_assoc($resultado)){
+                
             ?>
         </header>
         <div class="container text-left" style="background-color:#d0d0d0; margin 30px;">
@@ -40,11 +45,14 @@ if(!isset($_SESSION['idUsuarios'])){
                 <div class="row">
                 <div class="col-sm-4 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>
                     <div class="col-sm-8 text-center">
-                            <div class="form-group">
-                                <input type="text" placeholder="Dirección" class="form-control" id="dirusu"></input>
+                            <div class="form-group text-left">
+                            <label>Dirección:</label>
+
+                                <input type="text" placeholder="Dirección" class="form-control" id="dirusu" value="<?php echo $filas['Dirección'] ?>"></input>
                             </div>
-                            <div class="form-group ">
-                                <input type="text" placeholder="Teléfono" class="form-control" id="telusu"></input>
+                            <div class="form-group text-left">
+                                <label>Teléfono:</label>
+                                <input type="text" placeholder="Teléfono" class="form-control" id="telusu" value=<?php echo $filas['telefonoUsuario'] ?>></input>
                             </div>
                             <button style="margin-bottom:35px;" class="btn buttonColor" type="submit" onclick="procesar_compra()">Procesar compra</button>
                     </div>
@@ -52,7 +60,7 @@ if(!isset($_SESSION['idUsuarios'])){
             </div>
         </div>
         <footer>  
-
+        <?php } ?>
         <?php
             require_once('footer.php');
         ?>
@@ -84,10 +92,6 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<h6><b>Telefono: </b>' +data.datos[i].telPedido+'</h5>'+
                                     '</div>'+    
                                     '<div class="col-sm-2  ">'+
-                                        //'<h5>Cantidad</h5>'+
-                                        //<div class="flexor"><i class="fa-solid fa-minus item-option elementCart"></i>
-                                        //'<input type="text" placeholder="" class="form-control " style="width:33%;" name="userUsuario" required></input>'+
-                                        //<i class="fa-solid fa-plus item-option elementCart"></i></div>
                                     '</div>'+   
                                     '<div class="col-sm-2">'+
                                         '<h5>Acciones</h5>'+

@@ -186,7 +186,7 @@
                                                     <option value="admin">Admin</option>
                                                 </select>
                                             </div>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="edit_user()">Insertar usuario</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="edit_user()">Actualizar usuario</button>
                                         </div>
                                     </div>
                                 </div>

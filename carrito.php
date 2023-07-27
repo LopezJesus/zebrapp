@@ -88,8 +88,7 @@ if(!isset($_SESSION['idUsuarios'])){
                                         '<h6><b>Precio: </b>$ '+data.datos[i].preProducto+'MXN</h6>'+
                                         '<h6><b>Fecha: </b> '+data.datos[i].FechaPedido+ '</h5>'+
                                         '<h6><b>Estado: </b> ' +data.datos[i].estado+'</h5>'+
-                                        '<h6><b>Dirección: </b>' +data.datos[i].dirPedido+'</h5>'+
-                                        '<h6><b>Telefono: </b>' +data.datos[i].telPedido+'</h5>'+
+
                                     '</div>'+    
                                     '<div class="col-sm-2  ">'+
                                     '</div>'+   

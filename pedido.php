@@ -63,9 +63,9 @@ if(!isset($_SESSION['idUsuarios'])){
                     <div class="col-sm-6 text-left">
                     <h3>Datos de pago</h3>
                         <h4><b>Banco:</b> BBVA</h4>
-                        <h4><b>No de Cuenta:</b> xxx-xxx-125</h4>
-                        <h4><b>Representante:</b> Agente vendedor #1</h4>
-                        <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo example@digiproduct.com o al número de whatsapp 111 222 333</p>
+                        <h4><b>No de Cuenta:</b> 455-649-174-740-2114</h4>
+                        <h4><b>Representante:</b> Agente vendedor #1: </h4>
+                        <p><b>NOTA: </b>Para confirmar la compra debe realizar el deposito por el monto total, y eviar el comprobante al siguiente correo ventas@digiproduct.com o al número de télefono 664 168 7522</p>
 
                     </div>
                     <div class="col-sm-6 text-left"><h3> Total: </h3> <h4> $<span id="montotal"></span> MXN </h4></div>

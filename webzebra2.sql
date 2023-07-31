@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-07-2023 a las 20:33:53
+-- Tiempo de generación: 27-07-2023 a las 21:05:48
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -42,10 +42,21 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`idPedido`, `idUsuario`, `idProducto`, `FechaPedido`, `estado`, `dirPedido`, `telPedido`) VALUES
-(41, 1, 23, '2023-07-27 12:14:33', 3, 'Calle Hermita 1456 Fraccionamiento el Señores', '664-166-7531'),
-(42, 1, 24, '2023-07-27 12:14:36', 3, 'Calle Hermita 1456 Fraccionamiento el Señores', '664-166-7531'),
-(46, 1, 19, '2023-07-27 12:15:30', 2, 'Calle Hermita 1456 Fraccionamiento el Señores', '664-166-7531'),
-(47, 1, 31, '2023-07-31 11:29:14', 2, 'Calle Hermita 1456 Fraccionamiento el Señores', '664-166-7531');
+(24, 1, 20, '2023-07-04 10:16:29', 3, 'Calle deanda', '123'),
+(25, 1, 19, '2023-07-04 10:16:33', 2, 'Calle deanda', '123'),
+(27, 1, 35, '2023-07-17 11:59:31', 3, 'Pugberto norbert', '123'),
+(28, 1, 19, '2023-07-17 11:59:40', 3, 'Pugberto norbert', '123'),
+(29, 1, 40, '2023-07-17 11:59:47', 3, 'Pugberto norbert', '123'),
+(30, 1, 2, '2023-07-20 10:45:25', 2, 'Shi ', '123'),
+(31, 1, 2, '2023-07-20 10:45:31', 2, 'Shi ', '123'),
+(32, 1, 1, '2023-07-20 10:46:03', 2, 'Shi ', '123'),
+(33, 1, 1, '2023-07-20 10:48:02', 2, 'Shi ', '123'),
+(34, 1, 1, '2023-07-20 10:48:06', 2, 'Shi ', '123'),
+(35, 1, 1, '2023-07-20 10:48:08', 2, 'Shi ', '123'),
+(36, 1, 3, '2023-07-20 10:50:29', 2, 'Shi ', '123'),
+(37, 1, 20, '2023-07-20 10:51:31', 2, 'Shi ', '123'),
+(38, 1, 36, '2023-07-20 10:51:37', 2, 'Shi ', '123'),
+(39, 1, 35, '2023-07-20 10:51:43', 3, 'Shi ', '123');
 
 -- --------------------------------------------------------
 
@@ -133,9 +144,8 @@ CREATE TABLE `usuariosl` (
 --
 
 INSERT INTO `usuariosl` (`idUsuarios`, `userUsuario`, `passwordUsuario`, `NombreUsuario`, `ApellidoUsuario`, `emailUsuario`, `telefonoUsuario`, `ciudadUsuario`, `codposUsuario`, `Dirección`, `tipoUsuario`) VALUES
-(1, 'Joel11', '123456!', 'JoelArturo', 'Lopez Benitez', 'joelito11@gmail.com', '664-166-7531', 'Tijuana', '22244', 'Calle Hermita 1456 Fraccionamiento el Señores', 'Normal'),
-(18, 'fran123', '123456s', 'Francisco', 'Lopez', 'Franlope65@gmail.com', '6641667521', 'Tijuana', '22244', 'Loma de Guadalupe, Lomas Virreyes', 'Normal'),
-(19, 'xavier9113', '123456', 'Jesús Xavier', 'López', 'jesus.lopezg18@tectijuana.edu.mx', '6641667531', 'Tijuana', '22244', 'Loma de Guadalupe 11406-A, Lomas Virreyes', 'admin');
+(1, 'Joel11', '123456!', 'JoelArturo', 'Lopez Benitez', 'joelito11@gmail.com', '664-166-7531', 'Tijuanas', '222445', 'Calle Hermita 1456 Fraccionamiento el Señores', 'admin'),
+(18, 'Panchito s', '123456s', 'Panchitos', 'Gonzaless', 'a@gmail.coms', '', '', '', '', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -167,7 +177,7 @@ ALTER TABLE `usuariosl`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -179,7 +189,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuariosl`
 --
 ALTER TABLE `usuariosl`
-  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
